@@ -17,7 +17,7 @@ class GameViewController: UIViewController {
     var secondNumber: Int = 0
     var increaseScore: Int = 0
     var timer = Timer()
-    var seconds: Int = 5
+    var seconds: Int = 10
     
     var addition: Bool = false
     var subtraction: Bool = false
@@ -50,6 +50,7 @@ class GameViewController: UIViewController {
         else if division == true {
             operand = "/"
         }
+        increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
         
         firstNumber = randomNumber()
         secondNumber = randomNumber()
@@ -74,7 +75,6 @@ class GameViewController: UIViewController {
     
     @IBAction func answerButton(_ sender: UIButton) {
         mathematicalCalculations()
-        increaseScoreLabel.text! = String(increaseScore)
         if answerLabel.text == answerLabel.text {
             answerLabel.text = ""
         }
@@ -152,11 +152,12 @@ class GameViewController: UIViewController {
             showPopupForFinalScore()
         } else {
             seconds -= 1
-            timerLabel.text! = "\(seconds)"
+            timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
         }
     }
     
     func showPopupWithWrongAnswer() {
+        
         let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
         self.addChild(popup)
         popup.view.frame = self.view.frame
@@ -164,7 +165,11 @@ class GameViewController: UIViewController {
         popup.didMove(toParent: self)
         
         if popup.answerLabel.text == popup.answerLabel.text {
-            popup.answerLabel.text = String(correctAnswer)
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(correctAnswer)"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            popup.view.removeFromSuperview()
         }
     }
     
@@ -180,8 +185,9 @@ class GameViewController: UIViewController {
         }
         
         if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
-            popupFinalScore.scoreLabel.text = String(increaseScore)
+            popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
     }
     
 }
+

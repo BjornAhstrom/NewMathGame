@@ -18,7 +18,7 @@ class PopupWithWrongAnswerViewController: UIViewController {
 
         popupView.layer.cornerRadius = 20
     }
-
+    
     @IBAction func closePopupButton(_ sender: UIButton) {
         self.view.removeFromSuperview()
     }
