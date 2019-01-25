@@ -38,6 +38,19 @@ class GameViewController: UIViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
+        nameLabel.text! = name!
+        
+        firstNumber = randomNumber()
+        secondNumber = randomNumber()
+        
+        // om division lopa tills ingen är 0
+        if operand == "/" {
+            while firstNumber == 0 || secondNumber == 0 {
+                firstNumber = randomNumber()
+                secondNumber = randomNumber()
+            }
+        }
+        
         if addition == true {
             operand = "+"
         }
@@ -49,15 +62,16 @@ class GameViewController: UIViewController {
         }
         else if division == true {
             operand = "/"
+            if firstNumber < secondNumber {
+                let temp = firstNumber
+                firstNumber = secondNumber
+                secondNumber = temp
+            }
         }
+        
         increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
         
-        firstNumber = randomNumber()
-        secondNumber = randomNumber()
-        
-        nameLabel.text! = name!
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
-        
     }
     
     @IBAction func numberButtons(_ sender: UIButton) {
@@ -71,6 +85,10 @@ class GameViewController: UIViewController {
         else if sender.tag == 11 {
             answerLabel.text = answerLabel.text! + "."
         }
+    }
+    
+    @IBAction func quitButton(_ sender: UIButton) {
+        showPopupForFinalScore()
     }
     
     @IBAction func answerButton(_ sender: UIButton) {
@@ -98,17 +116,13 @@ class GameViewController: UIViewController {
             }
             break
         case "-":
-            if firstNumber < secondNumber {
-                resetRandomNumbersInNumbersAndOperandLabel()
+            correctAnswer = Double(firstNumber - secondNumber)
+            if correctAnswer == answer {
+                increaseScore += 1
+                print("Rätt")
             } else {
-                correctAnswer = Double(firstNumber - secondNumber)
-                if correctAnswer == answer {
-                    increaseScore += 1
-                    print("Rätt")
-                } else {
-                    print("Fel")
-                    showPopupWithWrongAnswer()
-                }
+                print("Fel")
+                showPopupWithWrongAnswer()
             }
             break
         case "*":
@@ -122,6 +136,7 @@ class GameViewController: UIViewController {
             }
             break
         case "/":
+            
             correctAnswer = Double(firstNumber / secondNumber)
             if correctAnswer == answer {
                 increaseScore += 1
@@ -137,7 +152,7 @@ class GameViewController: UIViewController {
     }
     
     func randomNumber() -> Int {
-        let randomNumber = Int.random(in: 0 ... 10)
+        let randomNumber = Int.random(in: 1 ... 10)
         return randomNumber
     }
     

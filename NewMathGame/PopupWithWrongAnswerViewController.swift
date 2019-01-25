@@ -9,17 +9,13 @@
 import UIKit
 
 class PopupWithWrongAnswerViewController: UIViewController {
-
+    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var answerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popupView.layer.cornerRadius = 20
-    }
-    
-    @IBAction func closePopupButton(_ sender: UIButton) {
-        self.view.removeFromSuperview()
     }
 }

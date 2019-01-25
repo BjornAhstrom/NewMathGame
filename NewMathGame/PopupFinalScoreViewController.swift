@@ -16,7 +16,7 @@ class PopupFinalScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         popupView.layer.cornerRadius = 20
     }
     
