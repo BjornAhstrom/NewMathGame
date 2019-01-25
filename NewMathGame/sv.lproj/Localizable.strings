@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  NewMathGame
+
+  Created by Björn Åhström on 2019-01-23.
+  Copyright © 2019 Björn Åhström. All rights reserved.
+*/
+"restart" = "För att kunna ändra språk måste appen stängas och återupptas av dig";
+"restartTitle" = "App omstart krävs";
+"cancel" = "Ångra";
+"close" = "Stäng";

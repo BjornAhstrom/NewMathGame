@@ -1,0 +1,186 @@
+
+/* Class = "UIButton"; normalTitle = "C"; ObjectID = "0O4-f2-Gas"; */
+"0O4-f2-Gas.normalTitle" = "C";
+
+/* Class = "UILabel"; text = "Wrong answer!"; ObjectID = "0t0-gN-Cd4"; */
+"0t0-gN-Cd4.text" = "Fel svar!";
+
+/* Class = "UIButton"; normalTitle = "Train on math tables"; ObjectID = "2DB-ra-obV"; */
+"2DB-ra-obV.normalTitle" = "Träna på mattetabeller";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "2T3-ux-cOS"; */
+"2T3-ux-cOS.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "="; ObjectID = "3E1-sk-zbJ"; */
+"3E1-sk-zbJ.text" = "=";
+
+/* Class = "UIButton"; normalTitle = "C"; ObjectID = "3Nf-0g-TrE"; */
+"3Nf-0g-TrE.normalTitle" = "C";
+
+/* Class = "UIButton"; normalTitle = "Play again"; ObjectID = "66J-NO-hfq"; */
+"66J-NO-hfq.normalTitle" = "Spela igen";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "6Qw-ld-4l1"; */
+"6Qw-ld-4l1.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "Division"; ObjectID = "AXN-7y-eeB"; */
+"AXN-7y-eeB.normalTitle" = "Division";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "DKc-a7-QfI"; */
+"DKc-a7-QfI.text" = "Name";
+
+/* Class = "UITextField"; placeholder = "Write your name"; ObjectID = "DlE-bn-G8T"; */
+"DlE-bn-G8T.placeholder" = "Skriv ditt namn";
+
+/* Class = "UILabel"; text = "00"; ObjectID = "DnE-L1-MDq"; */
+"DnE-L1-MDq.text" = "00";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "EyG-Zy-P95"; */
+"EyG-Zy-P95.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "Subtraction"; ObjectID = "GNk-Ya-SJl"; */
+"GNk-Ya-SJl.normalTitle" = "Subtraktion";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "IJE-h4-kKp"; */
+"IJE-h4-kKp.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Addition"; ObjectID = "IQf-X0-JEy"; */
+"IQf-X0-JEy.normalTitle" = "Addition";
+
+/* Class = "UILabel"; text = "Answer is"; ObjectID = "JFn-59-spy"; */
+"JFn-59-spy.text" = "Svaret är";
+
+/* Class = "UILabel"; text = "="; ObjectID = "LVz-EP-X5D"; */
+"LVz-EP-X5D.text" = "=";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "Lsj-m6-dDu"; */
+"Lsj-m6-dDu.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "1"; ObjectID = "PYZ-x1-pUz"; */
+"PYZ-x1-pUz.normalTitle" = "1";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Phc-6K-iJJ"; */
+"Phc-6K-iJJ.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "Pnu-7N-pdN"; */
+"Pnu-7N-pdN.normalTitle" = "Avsluta";
+
+/* Class = "UILabel"; text = "Division"; ObjectID = "QE6-Yu-h7w"; */
+"QE6-Yu-h7w.text" = "Division";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "QJo-hX-PFx"; */
+"QJo-hX-PFx.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "QQ3-Af-TFI"; */
+"QQ3-Af-TFI.normalTitle" = "Avsluta";
+
+/* Class = "UILabel"; text = "Select difficulty level"; ObjectID = "QeN-gO-71V"; */
+"QeN-gO-71V.text" = "Välj svårighetsgrad";
+
+/* Class = "UILabel"; text = "Points"; ObjectID = "QwB-BW-Flr"; */
+"QwB-BW-Flr.text" = "Poäng";
+
+/* Class = "UIButton"; normalTitle = "Quit"; ObjectID = "RZF-E5-wuY"; */
+"RZF-E5-wuY.normalTitle" = "Avsluta";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "SPE-8A-4gr"; */
+"SPE-8A-4gr.normalTitle" = "8";
+
+/* Class = "UILabel"; text = "20"; ObjectID = "T4D-N9-go7"; */
+"T4D-N9-go7.text" = "20";
+
+/* Class = "UILabel"; text = "Choose one or more counting methods"; ObjectID = "TTZ-0j-6kI"; */
+"TTZ-0j-6kI.text" = "Välj en eller flera räkningsmetoder";
+
+/* Class = "UILabel"; text = "Subtraction"; ObjectID = "TaP-Ph-Kug"; */
+"TaP-Ph-Kug.text" = "Subtraktion";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "To5-CH-wuq"; */
+"To5-CH-wuq.normalTitle" = "6";
+
+/* Class = "UILabel"; text = "Addition"; ObjectID = "U3h-bw-lwN"; */
+"U3h-bw-lwN.text" = "Addition";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "UBP-qe-OnU"; */
+"UBP-qe-OnU.text" = "Namn";
+
+/* Class = "UIButton"; normalTitle = "6"; ObjectID = "W1O-2m-K9M"; */
+"W1O-2m-K9M.normalTitle" = "6";
+
+/* Class = "UIButton"; normalTitle = "8"; ObjectID = "W6Z-ze-ADL"; */
+"W6Z-ze-ADL.normalTitle" = "8";
+
+/* Class = "UILabel"; text = "Seconds"; ObjectID = "Y9s-nH-tDn"; */
+"Y9s-nH-tDn.text" = "Sekunder";
+
+/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "ZzG-pK-knd"; */
+"ZzG-pK-knd.normalTitle" = "Spela";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "ag7-Bn-g78"; */
+"ag7-Bn-g78.normalTitle" = "4";
+
+/* Class = "UILabel"; text = "Score"; ObjectID = "bD5-44-stQ"; */
+"bD5-44-stQ.text" = "Poäng";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "eLa-z7-Hfb"; */
+"eLa-z7-Hfb.normalTitle" = "Button";
+
+/* Class = "UIButton"; normalTitle = "2"; ObjectID = "esX-pD-vKq"; */
+"esX-pD-vKq.normalTitle" = "2";
+
+/* Class = "UIButton"; normalTitle = "Answer"; ObjectID = "fpf-RM-te5"; */
+"fpf-RM-te5.normalTitle" = "Svara";
+
+/* Class = "UILabel"; text = "Multiplication"; ObjectID = "g7r-Lo-8Gp"; */
+"g7r-Lo-8Gp.text" = "Multiplikation";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "gx2-x8-XVN"; */
+"gx2-x8-XVN.normalTitle" = "3";
+
+/* Class = "UIButton"; normalTitle = "7"; ObjectID = "jC4-C1-ToX"; */
+"jC4-C1-ToX.normalTitle" = "7";
+
+/* Class = "UIButton"; normalTitle = "Multiplication"; ObjectID = "jUv-oQ-H6H"; */
+"jUv-oQ-H6H.normalTitle" = "Multiplikation";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "kCq-WY-WOW"; */
+"kCq-WY-WOW.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "you got"; ObjectID = "kML-xm-9XB"; */
+"kML-xm-9XB.text" = "du fick";
+
+/* Class = "UIButton"; normalTitle = ","; ObjectID = "ksO-a4-NOg"; */
+"ksO-a4-NOg.normalTitle" = ",";
+
+/* Class = "UIButton"; normalTitle = "5"; ObjectID = "mk5-V1-ZQj"; */
+"mk5-V1-ZQj.normalTitle" = "5";
+
+/* Class = "UIButton"; normalTitle = "3"; ObjectID = "mr9-ah-iB0"; */
+"mr9-ah-iB0.normalTitle" = "3";
+
+/* Class = "UIButton"; normalTitle = "4"; ObjectID = "oCX-WO-q8t"; */
+"oCX-WO-q8t.normalTitle" = "4";
+
+/* Class = "UIButton"; normalTitle = "Answer"; ObjectID = "ooq-k4-bOU"; */
+"ooq-k4-bOU.normalTitle" = "Svara";
+
+/* Class = "UITextView"; text = "Which counting method do you want to train on?"; ObjectID = "p1B-YZ-Cpd"; */
+"p1B-YZ-Cpd.text" = "Vilken räkningsmetod vill du träna på?";
+
+/* Class = "UIButton"; normalTitle = ","; ObjectID = "rb0-Ys-BWz"; */
+"rb0-Ys-BWz.normalTitle" = ",";
+
+/* Class = "UIButton"; normalTitle = "Close"; ObjectID = "sBz-Dk-Wyc"; */
+"sBz-Dk-Wyc.normalTitle" = "Stäng";
+
+/* Class = "UIButton"; normalTitle = "Start game"; ObjectID = "uXl-vh-yOE"; */
+"uXl-vh-yOE.normalTitle" = "Starta spelet";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "wbv-O7-6ea"; */
+"wbv-O7-6ea.normalTitle" = "9";
+
+/* Class = "UIButton"; normalTitle = "0"; ObjectID = "z7i-JD-8ER"; */
+"z7i-JD-8ER.normalTitle" = "0";
+
+/* Class = "UIButton"; normalTitle = "9"; ObjectID = "zTc-Bc-tGO"; */
+"zTc-Bc-tGO.normalTitle" = "9";
