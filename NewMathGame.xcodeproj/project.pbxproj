@@ -23,6 +23,7 @@
 		1E21234921F894970097E3B0 /* PopupWithWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234821F894970097E3B0 /* PopupWithWrongAnswerViewController.swift */; };
 		1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */; };
 		1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E21235021F906C10097E3B0 /* Localizable.strings */; };
+		1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1E21235121F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1E21235221F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		1E21235321F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalCalculations.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		1E21230221F889C60097E3B0 = {
 			isa = PBXGroup;
 			children = (
+				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
 				1E21230D21F889C60097E3B0 /* NewMathGame */,
 				1E21232221F889C70097E3B0 /* NewMathGameTests */,
 				1E21232D21F889C70097E3B0 /* NewMathGameUITests */,
@@ -293,6 +296,7 @@
 			files = (
 				1E21234721F894700097E3B0 /* GameViewController.swift in Sources */,
 				1E21231121F889C60097E3B0 /* ViewController.swift in Sources */,
+				1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */,
 				1E21234121F890E60097E3B0 /* RoundButton.swift in Sources */,
 				1E21234521F894530097E3B0 /* SelectGameViewController.swift in Sources */,
 				1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */,

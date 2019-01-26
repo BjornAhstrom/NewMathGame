@@ -28,6 +28,7 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var writeNameTextField: UITextField!
     @IBOutlet weak var difficultyPickerView: UIPickerView!
     
+    var savedValueFromPickerView: Int = 0
     var name: String = ""
     var difficulty: [String] = [String]()
     
@@ -38,6 +39,11 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         self.difficultyPickerView.delegate = self
         self.difficultyPickerView.dataSource = self
+        
+        
+        let defaultPickerRow  =  difficultyPickerView.numberOfRows(inComponent: 0)
+        difficultyPickerView.selectRow(defaultPickerRow, inComponent: 0, animated: false)
+        pickerView(difficultyPickerView, didSelectRow: defaultPickerRow, inComponent: 0)
         
         writeNameTextField.text! = name
         difficulty = ["Lätt", "Medium", "Svårt"]
@@ -57,7 +63,14 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return difficulty[row]
+        let difficult = difficulty[row]
+        
+        return "\(difficult)"
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("\(row)")
+        savedValueFromPickerView = row
     }
     
     @IBAction func operandButtons(_ sender: UIButton) {
@@ -73,6 +86,7 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
             destination.subtraction = subtractionButton.isSelected
             destination.multiplication = multiplicationButton.isSelected
             destination.division = divisionButton.isSelected
+            destination.valueFromPickerView = savedValueFromPickerView
             
             if let name = writeNameTextField.text {
                 destination.name = name

@@ -17,7 +17,8 @@ class GameViewController: UIViewController {
     var secondNumber: Int = 0
     var increaseScore: Int = 0
     var timer = Timer()
-    var seconds: Int = 10
+    var seconds: Int = 31
+    var valueFromPickerView: Int = 0
     
     var addition: Bool = false
     var subtraction: Bool = false
@@ -32,7 +33,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print("\(valueFromPickerView)")
         runTimer()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
@@ -40,15 +41,42 @@ class GameViewController: UIViewController {
     func resetRandomNumbersInNumbersAndOperandLabel() {
         nameLabel.text! = name!
         
-        firstNumber = randomNumber()
-        secondNumber = randomNumber()
-        
-        // om division lopa tills ingen är 0
-        if operand == "/" {
-            while firstNumber == 0 || secondNumber == 0 {
-                firstNumber = randomNumber()
-                secondNumber = randomNumber()
+        switch valueFromPickerView {
+        case 0:
+            firstNumber = easyRandomNumber()
+            secondNumber = easyRandomNumber()
+            
+            if operand == "/" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = easyRandomNumber()
+                    secondNumber = easyRandomNumber()
+                }
             }
+            break
+        case 1:
+            firstNumber = mediumRandomNumber()
+            secondNumber = mediumRandomNumber()
+            
+            if operand == "/" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = mediumRandomNumber()
+                    secondNumber = mediumRandomNumber()
+                }
+            }
+            break
+        case 2:
+            firstNumber = difficultRandomNumber()
+            secondNumber = difficultRandomNumber()
+            
+            if operand == "/" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
+                }
+            }
+            break
+        default:
+            print("Error")
         }
         
         if addition == true {
@@ -109,9 +137,7 @@ class GameViewController: UIViewController {
             
             if correctAnswer == answer {
                 increaseScore += 1
-                print("Rätt")
             } else {
-                print("Fel")
                 showPopupWithWrongAnswer()
             }
             break
@@ -119,9 +145,7 @@ class GameViewController: UIViewController {
             correctAnswer = Double(firstNumber - secondNumber)
             if correctAnswer == answer {
                 increaseScore += 1
-                print("Rätt")
             } else {
-                print("Fel")
                 showPopupWithWrongAnswer()
             }
             break
@@ -129,9 +153,7 @@ class GameViewController: UIViewController {
             correctAnswer = Double(firstNumber * secondNumber)
             if correctAnswer == answer {
                 increaseScore += 1
-                print("Rätt")
             } else {
-                print("Fel")
                 showPopupWithWrongAnswer()
             }
             break
@@ -140,9 +162,7 @@ class GameViewController: UIViewController {
             correctAnswer = Double(firstNumber / secondNumber)
             if correctAnswer == answer {
                 increaseScore += 1
-                print("Rätt")
             } else {
-                print("Fel")
                 showPopupWithWrongAnswer()
             }
             break
@@ -151,9 +171,18 @@ class GameViewController: UIViewController {
         }
     }
     
-    func randomNumber() -> Int {
-        let randomNumber = Int.random(in: 1 ... 10)
-        return randomNumber
+    func easyRandomNumber() -> Int {
+        let easyRandomNumber = Int.random(in: 0 ... 10)
+        return easyRandomNumber
+    }
+    func mediumRandomNumber() -> Int {
+        let mediumRandomNumber = Int.random(in: 0 ... 100)
+        return mediumRandomNumber
+    }
+    
+    func difficultRandomNumber() -> Int {
+        let difficultRandomNumber = Int.random(in: 0 ... 1000)
+        return difficultRandomNumber
     }
     
     func runTimer() {
