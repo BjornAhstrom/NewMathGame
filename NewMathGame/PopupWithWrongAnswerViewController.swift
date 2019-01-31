@@ -17,5 +17,24 @@ class PopupWithWrongAnswerViewController: UIViewController {
         super.viewDidLoad()
         
         popupView.layer.cornerRadius = 20
+        shake()
+    }
+    
+    func shake() {
+        let shake = CABasicAnimation(keyPath: "position")
+        shake.duration = 0.1
+        shake.repeatCount = 2
+        shake.autoreverses = true
+        
+        let toPoint = CGPoint(x: view.center.x + 10, y: view.center.y)
+        let toValue = NSValue(cgPoint: toPoint)
+        
+        let fromPoint = CGPoint(x: view.center.x - 10, y: view.center.y)
+        let fromValue = NSValue(cgPoint: fromPoint)
+        
+        shake.fromValue = fromValue
+        shake.toValue = toValue
+        
+        popupView.layer.add(shake, forKey: nil)
     }
 }

@@ -12,4 +12,7 @@
 "seconds" = "Seconds";
 "points" = "Points";
 "answer_is" = "Aswer is";
+"select_easy" = "Easy";
+"select_average" = "Average";
+"select_difficult" = "Diffcult";
 

@@ -16,8 +16,8 @@ class PopupFinalScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         popupView.layer.cornerRadius = 20
+        pulsate()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -28,5 +28,18 @@ class PopupFinalScoreViewController: UIViewController {
                 destination.name = name
             }
         }
+    }
+    
+    func pulsate() {
+        let pulse = CASpringAnimation(keyPath: "transform.scale")
+        pulse.duration = 0.8
+        pulse.fromValue = 0.85
+        pulse.toValue = 1.0
+        pulse.autoreverses = true
+        pulse.repeatCount = 1
+        pulse.initialVelocity = 0.9
+        pulse.damping = 1.0
+        
+        popupView.layer.add(pulse, forKey: nil)
     }
 }

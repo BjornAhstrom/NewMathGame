@@ -46,14 +46,14 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         pickerView(difficultyPickerView, didSelectRow: defaultPickerRow, inComponent: 0)
         
         writeNameTextField.text! = name
-        difficulty = ["Lätt", "Medium", "Svårt"]
+        difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_average", comment: ""), NSLocalizedString("select_difficult", comment: "")]
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
-    }
-    
+   
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        self.view.endEditing(true)
+//        return false
+//    }
+
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -69,7 +69,6 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        print("\(row)")
         savedValueFromPickerView = row
     }
     

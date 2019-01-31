@@ -8,10 +8,16 @@
 
 import UIKit
 
+extension Array {
+    func randomItem() -> String? {
+        if isEmpty { return nil }
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index] as? String
+    }
+}
+
 class GameViewController: UIViewController {
-    
     var name: String?
-    var operand: String = ""
     var correctAnswer: Double = 0.0
     var firstNumber: Int = 0
     var secondNumber: Int = 0
@@ -19,11 +25,14 @@ class GameViewController: UIViewController {
     var timer = Timer()
     var seconds: Int = 31
     var valueFromPickerView: Int = 0
+    var operand: String = ""
+    var arrOperand = [String]()
     
     var addition: Bool = false
     var subtraction: Bool = false
     var multiplication: Bool = false
     var division: Bool = false
+    var stopTimer: Bool = false
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var increaseScoreLabel: UILabel!
@@ -34,13 +43,13 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("\(valueFromPickerView)")
+        //arrOperand = ["+", "-", "*", "/"]
         runTimer()
+        //randomOperands()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    func resetRandomNumbersInNumbersAndOperandLabel() {
-        nameLabel.text! = name!
-        
+    func userSelectedDifficultyLevelInPickerView() {
         switch valueFromPickerView {
         case 0:
             firstNumber = easyRandomNumber()
@@ -78,17 +87,33 @@ class GameViewController: UIViewController {
         default:
             print("Error")
         }
+    }
+    
+    func resetRandomNumbersInNumbersAndOperandLabel() {
+        if let names = name {
+        nameLabel.text! = names
+        }
+        userSelectedDifficultyLevelInPickerView()
         
         if addition == true {
+            //arrOperand.append("+")
             operand = "+"
         }
         else if subtraction == true {
+            //arrOperand.append("-")
             operand = "-"
+            if firstNumber < secondNumber {
+                let temp = firstNumber
+                firstNumber = secondNumber
+                secondNumber = temp
+            }
         }
         else if multiplication == true {
+            //arrOperand.append("*")
             operand = "*"
         }
         else if division == true {
+            //arrOperand.append("/")
             operand = "/"
             if firstNumber < secondNumber {
                 let temp = firstNumber
@@ -96,10 +121,12 @@ class GameViewController: UIViewController {
                 secondNumber = temp
             }
         }
-        
         increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
-        
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
+    }
+    
+    func randomOperands() {
+        //operand = arrOperand.randomItem()!
     }
     
     @IBAction func numberButtons(_ sender: UIButton) {
@@ -117,13 +144,14 @@ class GameViewController: UIViewController {
     
     @IBAction func quitButton(_ sender: UIButton) {
         showPopupForFinalScore()
+        stopingTimer()
+        print("Timer Stopped with button press")
     }
     
     @IBAction func answerButton(_ sender: UIButton) {
         mathematicalCalculations()
-        if answerLabel.text == answerLabel.text {
-            answerLabel.text = ""
-        }
+        answerLabel.text! = ""
+        //randomOperands()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
@@ -193,6 +221,7 @@ class GameViewController: UIViewController {
         if seconds < 1 {
             timer.invalidate()
             //Send alert to indicate "time's up!"
+            print("timer stopped when times ran out")
             showPopupForFinalScore()
         } else {
             seconds -= 1
@@ -200,8 +229,14 @@ class GameViewController: UIViewController {
         }
     }
     
+    func stopingTimer() {
+        if self.stopTimer == false {
+            timer.invalidate()
+            self.stopTimer = true
+        }
+    }
+    
     func showPopupWithWrongAnswer() {
-        
         let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
         self.addChild(popup)
         popup.view.frame = self.view.frame
@@ -231,7 +266,10 @@ class GameViewController: UIViewController {
         if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
             popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
+        let save = SaveNameAndScoreViewController()
+        save.name = [name] as! [String]
+        save.score = [increaseScore]
     }
     
+   
 }
-

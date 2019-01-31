@@ -24,6 +24,11 @@
 		1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */; };
 		1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E21235021F906C10097E3B0 /* Localizable.strings */; };
 		1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */; };
+		1E2BC0B421FCD74D002B7E8D /* savedDataFromMathGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */; };
+		1E2BC0F22200598D002B7E8D /* SaveNameAndScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */; };
+		1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */; };
+		1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */; };
+		1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +75,11 @@
 		1E21235221F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		1E21235321F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalCalculations.swift; sourceTree = "<group>"; };
+		1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = savedDataFromMathGame.txt; sourceTree = "<group>"; };
+		1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNameAndScoreViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOperandInTrainOnMathViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainOnMathViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,7 +110,6 @@
 		1E21230221F889C60097E3B0 = {
 			isa = PBXGroup;
 			children = (
-				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
 				1E21230D21F889C60097E3B0 /* NewMathGame */,
 				1E21232221F889C70097E3B0 /* NewMathGameTests */,
 				1E21232D21F889C70097E3B0 /* NewMathGameUITests */,
@@ -124,10 +133,15 @@
 				1E21230E21F889C60097E3B0 /* AppDelegate.swift */,
 				1E21231021F889C60097E3B0 /* ViewController.swift */,
 				1E21231221F889C60097E3B0 /* Main.storyboard */,
+				1E21234421F894530097E3B0 /* SelectGameViewController.swift */,
+				1E21234621F894700097E3B0 /* GameViewController.swift */,
 				1E21234821F894970097E3B0 /* PopupWithWrongAnswerViewController.swift */,
 				1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */,
-				1E21234621F894700097E3B0 /* GameViewController.swift */,
-				1E21234421F894530097E3B0 /* SelectGameViewController.swift */,
+				1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */,
+				1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */,
+				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
+				1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */,
+				1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */,
 				1E21234021F890E60097E3B0 /* RoundButton.swift */,
 				1E21231521F889C70097E3B0 /* Assets.xcassets */,
 				1E21234221F8936B0097E3B0 /* checked-checkbox.png */,
@@ -136,6 +150,7 @@
 				1E21231721F889C70097E3B0 /* LaunchScreen.storyboard */,
 				1E21231A21F889C70097E3B0 /* Info.plist */,
 				1E21235021F906C10097E3B0 /* Localizable.strings */,
+				1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */,
 			);
 			path = NewMathGame;
 			sourceTree = "<group>";
@@ -267,6 +282,7 @@
 				1E21233F21F88DF20097E3B0 /* Sverige.jpg in Resources */,
 				1E21231621F889C70097E3B0 /* Assets.xcassets in Resources */,
 				1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */,
+				1E2BC0B421FCD74D002B7E8D /* savedDataFromMathGame.txt in Resources */,
 				1E21231421F889C60097E3B0 /* Main.storyboard in Resources */,
 				1E21234321F8936B0097E3B0 /* checked-checkbox.png in Resources */,
 				1E21233E21F88DF20097E3B0 /* usa.jpg in Resources */,
@@ -295,12 +311,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E21234721F894700097E3B0 /* GameViewController.swift in Sources */,
+				1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */,
+				1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */,
 				1E21231121F889C60097E3B0 /* ViewController.swift in Sources */,
 				1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */,
 				1E21234121F890E60097E3B0 /* RoundButton.swift in Sources */,
 				1E21234521F894530097E3B0 /* SelectGameViewController.swift in Sources */,
 				1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */,
+				1E2BC0F22200598D002B7E8D /* SaveNameAndScoreViewController.swift in Sources */,
 				1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */,
+				1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */,
 				1E21234921F894970097E3B0 /* PopupWithWrongAnswerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,7 +519,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = se.Bjorn.Ahstrom.NewMathGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -517,7 +537,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = se.Bjorn.Ahstrom.NewMathGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

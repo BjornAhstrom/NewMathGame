@@ -12,3 +12,6 @@
 "seconds" = "Sekunder";
 "points" = "Poäng";
 "answer_is" = "Svaret är";
+"select_easy" = "Lätt";
+"select_average" = "Medelsvårt";
+"select_difficult" = "Svårt";

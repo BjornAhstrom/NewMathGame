@@ -10,12 +10,13 @@ import UIKit
 
 class MathematicalCalculations: UIViewController {
     let gameView = GameViewController()
+    
     var increaseScore: Int = 0
     var correctAnswer: Double = 0
     
-    func mathematicalCalculations(firstNumber: Double, secondNumber: Double, operand: String) -> Int{
+    
+    func mathematicalCalculations(firstNumber: Double, secondNumber: Double, answer: Double ,operand: String){
         let choosOperand = operand
-        let answer = Double(gameView.answerLabel.text!)
         
         switch choosOperand {
         case "+":
@@ -55,6 +56,5 @@ class MathematicalCalculations: UIViewController {
         default:
             break
         }
-        return increaseScore
     }
 }
