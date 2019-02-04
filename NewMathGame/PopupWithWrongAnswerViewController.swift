@@ -11,11 +11,14 @@ import UIKit
 class PopupWithWrongAnswerViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        textLabel.font = UIFont(name: "Marker Felt", size: 30)
+        answerLabel.font = UIFont(name: "Marker Felt", size: 30)
         popupView.layer.cornerRadius = 20
         shake()
     }
@@ -26,10 +29,10 @@ class PopupWithWrongAnswerViewController: UIViewController {
         shake.repeatCount = 2
         shake.autoreverses = true
         
-        let toPoint = CGPoint(x: view.center.x + 10, y: view.center.y)
+        let toPoint = CGPoint(x: view.center.x + 10, y: view.center.y + 10)
         let toValue = NSValue(cgPoint: toPoint)
         
-        let fromPoint = CGPoint(x: view.center.x - 10, y: view.center.y)
+        let fromPoint = CGPoint(x: view.center.x - 10, y: view.center.y - 10)
         let fromValue = NSValue(cgPoint: fromPoint)
         
         shake.fromValue = fromValue

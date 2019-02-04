@@ -11,7 +11,6 @@ import UIKit
 class TrainOnMathViewController: UIViewController {
     @IBOutlet weak var numberAndOperandLabel: UILabel!
     @IBOutlet weak var userInputLabel: UILabel!
-    @IBOutlet weak var buttons: UIButton!
     
     private var mathCalc = MathematicalCalculations()
     var addition: Bool = false
@@ -26,7 +25,7 @@ class TrainOnMathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setGradientBackground()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
@@ -147,5 +146,18 @@ class TrainOnMathViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             popup.view.removeFromSuperview()
         }
+    }
+    
+    func setGradientBackground() {
+        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
+        
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        gradientLayer.frame = self.view.bounds
+        
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

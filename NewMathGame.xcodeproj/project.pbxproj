@@ -10,25 +10,36 @@
 		1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21230E21F889C60097E3B0 /* AppDelegate.swift */; };
 		1E21231121F889C60097E3B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21231021F889C60097E3B0 /* ViewController.swift */; };
 		1E21231421F889C60097E3B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E21231221F889C60097E3B0 /* Main.storyboard */; };
-		1E21231621F889C70097E3B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E21231521F889C70097E3B0 /* Assets.xcassets */; };
 		1E21231921F889C70097E3B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1E21231721F889C70097E3B0 /* LaunchScreen.storyboard */; };
 		1E21232421F889C70097E3B0 /* NewMathGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21232321F889C70097E3B0 /* NewMathGameTests.swift */; };
 		1E21232F21F889C70097E3B0 /* NewMathGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21232E21F889C70097E3B0 /* NewMathGameUITests.swift */; };
 		1E21233E21F88DF20097E3B0 /* usa.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E21233C21F88DF20097E3B0 /* usa.jpg */; };
 		1E21233F21F88DF20097E3B0 /* Sverige.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1E21233D21F88DF20097E3B0 /* Sverige.jpg */; };
 		1E21234121F890E60097E3B0 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234021F890E60097E3B0 /* RoundButton.swift */; };
-		1E21234321F8936B0097E3B0 /* checked-checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E21234221F8936B0097E3B0 /* checked-checkbox.png */; };
 		1E21234521F894530097E3B0 /* SelectGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234421F894530097E3B0 /* SelectGameViewController.swift */; };
 		1E21234721F894700097E3B0 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234621F894700097E3B0 /* GameViewController.swift */; };
 		1E21234921F894970097E3B0 /* PopupWithWrongAnswerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234821F894970097E3B0 /* PopupWithWrongAnswerViewController.swift */; };
 		1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */; };
 		1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E21235021F906C10097E3B0 /* Localizable.strings */; };
 		1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */; };
-		1E2BC0B421FCD74D002B7E8D /* savedDataFromMathGame.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */; };
-		1E2BC0F22200598D002B7E8D /* SaveNameAndScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */; };
+		1E2BC0F22200598D002B7E8D /* highScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F12200598D002B7E8D /* highScore.swift */; };
 		1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */; };
 		1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */; };
 		1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */; };
+		1E7C3D4A22032BB00033BD34 /* goldButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D4622032BAF0033BD34 /* goldButton.png */; };
+		1E7C3D4C22032BB00033BD34 /* checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D4822032BB00033BD34 /* checked.png */; };
+		1E7C3D4D22032BB00033BD34 /* arrow-left-icon-next-and-previous-buttons-png.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D4922032BB00033BD34 /* arrow-left-icon-next-and-previous-buttons-png.png */; };
+		1E7C3D4F220336860033BD34 /* blueButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D4E220336860033BD34 /* blueButton.png */; };
+		1E7C3D51220336AC0033BD34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D50220336AC0033BD34 /* Assets.xcassets */; };
+		1E7C3D53220338050033BD34 /* goldRoundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D52220338040033BD34 /* goldRoundButton.png */; };
+		1E7C3D572203395E0033BD34 /* greenRoundButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D542203395A0033BD34 /* greenRoundButton.png */; };
+		1E7C3D582203395E0033BD34 /* clipart1386407.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D552203395B0033BD34 /* clipart1386407.png */; };
+		1E7C3D592203395E0033BD34 /* clipart2003768.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D562203395C0033BD34 /* clipart2003768.png */; };
+		1E7C3D5C22033DEE0033BD34 /* redButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D5A22033DEA0033BD34 /* redButton.png */; };
+		1E7C3D5D22033DEE0033BD34 /* greenButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D5B22033DEC0033BD34 /* greenButton.png */; };
+		1E7C3D5F2203426A0033BD34 /* banner.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D5E2203426A0033BD34 /* banner.png */; };
+		1E7C3D6322037A2B0033BD34 /* uncheked.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D6222037A2A0033BD34 /* uncheked.png */; };
+		1ED8A3A22208313800DF1164 /* BackgroundColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +64,6 @@
 		1E21230E21F889C60097E3B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1E21231021F889C60097E3B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		1E21231321F889C60097E3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		1E21231521F889C70097E3B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1E21231821F889C70097E3B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1E21231A21F889C70097E3B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E21231F21F889C70097E3B0 /* NewMathGameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NewMathGameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +75,6 @@
 		1E21233C21F88DF20097E3B0 /* usa.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = usa.jpg; sourceTree = "<group>"; };
 		1E21233D21F88DF20097E3B0 /* Sverige.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Sverige.jpg; sourceTree = "<group>"; };
 		1E21234021F890E60097E3B0 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
-		1E21234221F8936B0097E3B0 /* checked-checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checked-checkbox.png"; sourceTree = "<group>"; };
 		1E21234421F894530097E3B0 /* SelectGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectGameViewController.swift; sourceTree = "<group>"; };
 		1E21234621F894700097E3B0 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		1E21234821F894970097E3B0 /* PopupWithWrongAnswerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupWithWrongAnswerViewController.swift; sourceTree = "<group>"; };
@@ -75,11 +84,24 @@
 		1E21235221F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		1E21235321F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalCalculations.swift; sourceTree = "<group>"; };
-		1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = savedDataFromMathGame.txt; sourceTree = "<group>"; };
-		1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNameAndScoreViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F12200598D002B7E8D /* highScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = highScore.swift; sourceTree = "<group>"; };
 		1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOperandInTrainOnMathViewController.swift; sourceTree = "<group>"; };
 		1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainOnMathViewController.swift; sourceTree = "<group>"; };
 		1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationsViewController.swift; sourceTree = "<group>"; };
+		1E7C3D4622032BAF0033BD34 /* goldButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldButton.png; sourceTree = "<group>"; };
+		1E7C3D4822032BB00033BD34 /* checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checked.png; sourceTree = "<group>"; };
+		1E7C3D4922032BB00033BD34 /* arrow-left-icon-next-and-previous-buttons-png.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow-left-icon-next-and-previous-buttons-png.png"; sourceTree = "<group>"; };
+		1E7C3D4E220336860033BD34 /* blueButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueButton.png; sourceTree = "<group>"; };
+		1E7C3D50220336AC0033BD34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1E7C3D52220338040033BD34 /* goldRoundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = goldRoundButton.png; sourceTree = "<group>"; };
+		1E7C3D542203395A0033BD34 /* greenRoundButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenRoundButton.png; sourceTree = "<group>"; };
+		1E7C3D552203395B0033BD34 /* clipart1386407.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipart1386407.png; sourceTree = "<group>"; };
+		1E7C3D562203395C0033BD34 /* clipart2003768.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clipart2003768.png; sourceTree = "<group>"; };
+		1E7C3D5A22033DEA0033BD34 /* redButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = redButton.png; sourceTree = "<group>"; };
+		1E7C3D5B22033DEC0033BD34 /* greenButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = greenButton.png; sourceTree = "<group>"; };
+		1E7C3D5E2203426A0033BD34 /* banner.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner.png; sourceTree = "<group>"; };
+		1E7C3D6222037A2A0033BD34 /* uncheked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = uncheked.png; sourceTree = "<group>"; };
+		1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +152,7 @@
 		1E21230D21F889C60097E3B0 /* NewMathGame */ = {
 			isa = PBXGroup;
 			children = (
+				1ED8A39E2208279C00DF1164 /* Model */,
 				1E21230E21F889C60097E3B0 /* AppDelegate.swift */,
 				1E21231021F889C60097E3B0 /* ViewController.swift */,
 				1E21231221F889C60097E3B0 /* Main.storyboard */,
@@ -139,12 +162,21 @@
 				1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */,
 				1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */,
 				1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */,
-				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
-				1E2BC0F12200598D002B7E8D /* SaveNameAndScoreViewController.swift */,
-				1E2BC0B321FCD74D002B7E8D /* savedDataFromMathGame.txt */,
+				1E2BC0F12200598D002B7E8D /* highScore.swift */,
 				1E21234021F890E60097E3B0 /* RoundButton.swift */,
-				1E21231521F889C70097E3B0 /* Assets.xcassets */,
-				1E21234221F8936B0097E3B0 /* checked-checkbox.png */,
+				1E7C3D50220336AC0033BD34 /* Assets.xcassets */,
+				1E7C3D5E2203426A0033BD34 /* banner.png */,
+				1E7C3D6222037A2A0033BD34 /* uncheked.png */,
+				1E7C3D5A22033DEA0033BD34 /* redButton.png */,
+				1E7C3D5B22033DEC0033BD34 /* greenButton.png */,
+				1E7C3D542203395A0033BD34 /* greenRoundButton.png */,
+				1E7C3D552203395B0033BD34 /* clipart1386407.png */,
+				1E7C3D562203395C0033BD34 /* clipart2003768.png */,
+				1E7C3D52220338040033BD34 /* goldRoundButton.png */,
+				1E7C3D4622032BAF0033BD34 /* goldButton.png */,
+				1E7C3D4E220336860033BD34 /* blueButton.png */,
+				1E7C3D4922032BB00033BD34 /* arrow-left-icon-next-and-previous-buttons-png.png */,
+				1E7C3D4822032BB00033BD34 /* checked.png */,
 				1E21233D21F88DF20097E3B0 /* Sverige.jpg */,
 				1E21233C21F88DF20097E3B0 /* usa.jpg */,
 				1E21231721F889C70097E3B0 /* LaunchScreen.storyboard */,
@@ -171,6 +203,15 @@
 				1E21233021F889C70097E3B0 /* Info.plist */,
 			);
 			path = NewMathGameUITests;
+			sourceTree = "<group>";
+		};
+		1ED8A39E2208279C00DF1164 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
+				1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -279,13 +320,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E21231921F889C70097E3B0 /* LaunchScreen.storyboard in Resources */,
+				1E7C3D5D22033DEE0033BD34 /* greenButton.png in Resources */,
+				1E7C3D582203395E0033BD34 /* clipart1386407.png in Resources */,
 				1E21233F21F88DF20097E3B0 /* Sverige.jpg in Resources */,
-				1E21231621F889C70097E3B0 /* Assets.xcassets in Resources */,
+				1E7C3D51220336AC0033BD34 /* Assets.xcassets in Resources */,
+				1E7C3D4F220336860033BD34 /* blueButton.png in Resources */,
+				1E7C3D4A22032BB00033BD34 /* goldButton.png in Resources */,
+				1E7C3D592203395E0033BD34 /* clipart2003768.png in Resources */,
+				1E7C3D572203395E0033BD34 /* greenRoundButton.png in Resources */,
+				1E7C3D4C22032BB00033BD34 /* checked.png in Resources */,
 				1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */,
-				1E2BC0B421FCD74D002B7E8D /* savedDataFromMathGame.txt in Resources */,
+				1E7C3D5C22033DEE0033BD34 /* redButton.png in Resources */,
 				1E21231421F889C60097E3B0 /* Main.storyboard in Resources */,
-				1E21234321F8936B0097E3B0 /* checked-checkbox.png in Resources */,
+				1E7C3D4D22032BB00033BD34 /* arrow-left-icon-next-and-previous-buttons-png.png in Resources */,
+				1E7C3D53220338050033BD34 /* goldRoundButton.png in Resources */,
 				1E21233E21F88DF20097E3B0 /* usa.jpg in Resources */,
+				1E7C3D5F2203426A0033BD34 /* banner.png in Resources */,
+				1E7C3D6322037A2B0033BD34 /* uncheked.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,9 +367,10 @@
 				1E21231121F889C60097E3B0 /* ViewController.swift in Sources */,
 				1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */,
 				1E21234121F890E60097E3B0 /* RoundButton.swift in Sources */,
+				1ED8A3A22208313800DF1164 /* BackgroundColorViewController.swift in Sources */,
 				1E21234521F894530097E3B0 /* SelectGameViewController.swift in Sources */,
 				1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */,
-				1E2BC0F22200598D002B7E8D /* SaveNameAndScoreViewController.swift in Sources */,
+				1E2BC0F22200598D002B7E8D /* highScore.swift in Sources */,
 				1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */,
 				1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */,
 				1E21234921F894970097E3B0 /* PopupWithWrongAnswerViewController.swift in Sources */,

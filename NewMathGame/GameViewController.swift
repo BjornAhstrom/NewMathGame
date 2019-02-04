@@ -17,16 +17,18 @@ extension Array {
 }
 
 class GameViewController: UIViewController {
-    var name: String?
-    var correctAnswer: Double = 0.0
-    var firstNumber: Int = 0
-    var secondNumber: Int = 0
-    var increaseScore: Int = 0
-    var timer = Timer()
-    var seconds: Int = 31
+    private let mathCalaculations = MathematicalCalculations()
+    private var correctAnswer: Double = 0.0
+    private var firstNumber: Int = 0
+    private var secondNumber: Int = 0
+    private var increaseScore: Int = 0
+    private var timer = Timer()
+    private var seconds: Int = 31
+    private var arrayOfOperands = [String]()
+    
     var valueFromPickerView: Int = 0
+    var name: String?
     var operand: String = ""
-    var arrOperand = [String]()
     
     var addition: Bool = false
     var subtraction: Bool = false
@@ -38,95 +40,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var increaseScoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var showNumbersAndOperandLabel: UILabel!
+    @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("\(valueFromPickerView)")
-        //arrOperand = ["+", "-", "*", "/"]
-        runTimer()
-        //randomOperands()
-        resetRandomNumbersInNumbersAndOperandLabel()
-    }
-    
-    func userSelectedDifficultyLevelInPickerView() {
-        switch valueFromPickerView {
-        case 0:
-            firstNumber = easyRandomNumber()
-            secondNumber = easyRandomNumber()
-            
-            if operand == "/" {
-                while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
-                }
-            }
-            break
-        case 1:
-            firstNumber = mediumRandomNumber()
-            secondNumber = mediumRandomNumber()
-            
-            if operand == "/" {
-                while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = mediumRandomNumber()
-                    secondNumber = mediumRandomNumber()
-                }
-            }
-            break
-        case 2:
-            firstNumber = difficultRandomNumber()
-            secondNumber = difficultRandomNumber()
-            
-            if operand == "/" {
-                while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = difficultRandomNumber()
-                    secondNumber = difficultRandomNumber()
-                }
-            }
-            break
-        default:
-            print("Error")
-        }
-    }
-    
-    func resetRandomNumbersInNumbersAndOperandLabel() {
-        if let names = name {
-        nameLabel.text! = names
-        }
-        userSelectedDifficultyLevelInPickerView()
+        setGradientBackground()
         
-        if addition == true {
-            //arrOperand.append("+")
-            operand = "+"
-        }
-        else if subtraction == true {
-            //arrOperand.append("-")
-            operand = "-"
-            if firstNumber < secondNumber {
-                let temp = firstNumber
-                firstNumber = secondNumber
-                secondNumber = temp
-            }
-        }
-        else if multiplication == true {
-            //arrOperand.append("*")
-            operand = "*"
-        }
-        else if division == true {
-            //arrOperand.append("/")
-            operand = "/"
-            if firstNumber < secondNumber {
-                let temp = firstNumber
-                firstNumber = secondNumber
-                secondNumber = temp
-            }
-        }
-        increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
-        showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
-    }
-    
-    func randomOperands() {
-        //operand = arrOperand.randomItem()!
+        runTimer()
+        resetRandomNumbersInNumbersAndOperandLabel()
     }
     
     @IBAction func numberButtons(_ sender: UIButton) {
@@ -151,51 +73,139 @@ class GameViewController: UIViewController {
     @IBAction func answerButton(_ sender: UIButton) {
         mathematicalCalculations()
         answerLabel.text! = ""
-        //randomOperands()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    func mathematicalCalculations() {
-        let choosOperand = operand
-        let answer = Double(answerLabel.text!)
-        
-        switch choosOperand {
-        case "+":
-            correctAnswer = Double(firstNumber + secondNumber)
+    func userSelectedDifficultyLevelInPickerView() {
+        switch valueFromPickerView {
+        case 0:
+            firstNumber = easyRandomNumber()
+            secondNumber = easyRandomNumber()
             
-            if correctAnswer == answer {
-                increaseScore += 1
-            } else {
-                showPopupWithWrongAnswer()
+            if operand == "+" || operand == "-" || operand == "/"   {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = easyRandomNumber()
+                    secondNumber = easyRandomNumber()
+                }
             }
             break
-        case "-":
-            correctAnswer = Double(firstNumber - secondNumber)
-            if correctAnswer == answer {
-                increaseScore += 1
-            } else {
-                showPopupWithWrongAnswer()
-            }
-            break
-        case "*":
-            correctAnswer = Double(firstNumber * secondNumber)
-            if correctAnswer == answer {
-                increaseScore += 1
-            } else {
-                showPopupWithWrongAnswer()
-            }
-            break
-        case "/":
+        case 1:
+            firstNumber = mediumRandomNumber()
+            secondNumber = mediumRandomNumber()
             
-            correctAnswer = Double(firstNumber / secondNumber)
-            if correctAnswer == answer {
-                increaseScore += 1
-            } else {
-                showPopupWithWrongAnswer()
+            if operand == "+" || operand == "-" || operand == "/" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = mediumRandomNumber()
+                    secondNumber = mediumRandomNumber()
+                }
+            }
+            break
+        case 2:
+            firstNumber = difficultRandomNumber()
+            secondNumber = difficultRandomNumber()
+            
+            if operand == "+" || operand == "-" || operand == "/" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
+                }
             }
             break
         default:
-            break
+            print("Error")
+        }
+    }
+    
+    func resetRandomNumbersInNumbersAndOperandLabel() {
+        userSelectedDifficultyLevelInPickerView()
+        
+        answerLabel.font = UIFont(name: "Marker Felt", size: 30)
+        equalLabel.font = UIFont(name: "Marker Felt", size: 35)
+        
+        if let names = name {
+            nameLabel.font = UIFont(name: "Marker Felt", size: 25)
+            nameLabel.text! = names
+        }
+        
+        if addition == true {
+            arrayOfOperands.append("+")
+        }
+        if subtraction == true {
+            arrayOfOperands.append("-")
+            if firstNumber < secondNumber {
+                let temp = firstNumber
+                firstNumber = secondNumber
+                secondNumber = temp
+            }
+        }
+        if multiplication == true {
+            arrayOfOperands.append("*")
+        }
+        if division == true {
+            arrayOfOperands.append("/")
+            if firstNumber < secondNumber {
+                let temp = firstNumber
+                firstNumber = secondNumber
+                secondNumber = temp
+            }
+        }
+        
+        if let test = arrayOfOperands.randomItem() {
+            operand = test
+        }
+        
+        increaseScoreLabel.font = UIFont(name: "Marker Felt", size: 25)
+        increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
+        showNumbersAndOperandLabel.font = UIFont(name: "Marker Felt", size: 35)
+        showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
+    }
+    
+    func mathematicalCalculations() {
+        let answer = Double(answerLabel.text!)
+        
+        correctAnswer = mathCalaculations.mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
+        
+        if correctAnswer == answer {
+            increaseScore += 1
+        } else {
+            showPopupWithWrongAnswer()
+        }
+    }
+    
+    func showPopupWithWrongAnswer() {
+        let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
+        self.addChild(popup)
+        popup.view.frame = self.view.frame
+        self.view.addSubview(popup.view)
+        popup.didMove(toParent: self)
+        
+        if popup.answerLabel.text == popup.answerLabel.text {
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(correctAnswer)"
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            popup.view.removeFromSuperview()
+        }
+    }
+    
+    func showPopupForFinalScore() {
+        let saveNameAndScore = highScore()
+        
+        let popupFinalScore = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "finalScoreId") as! PopupFinalScoreViewController
+        self.addChild(popupFinalScore)
+        popupFinalScore.view.frame = self.view.frame
+        self.view.addSubview(popupFinalScore.view)
+        popupFinalScore.didMove(toParent: self)
+        
+        saveNameAndScore.saveNameAndScore(name: name!, score: increaseScore)
+        saveNameAndScore.saveUserData()
+        
+        if popupFinalScore.nameLabel.text == popupFinalScore.nameLabel.text {
+            popupFinalScore.nameLabel.text = nameLabel.text
+        }
+        
+        if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
+            popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
     }
     
@@ -225,6 +235,7 @@ class GameViewController: UIViewController {
             showPopupForFinalScore()
         } else {
             seconds -= 1
+            timerLabel.font = UIFont(name: "Marker Felt", size: 25)
             timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
         }
     }
@@ -236,40 +247,16 @@ class GameViewController: UIViewController {
         }
     }
     
-    func showPopupWithWrongAnswer() {
-        let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
-        self.addChild(popup)
-        popup.view.frame = self.view.frame
-        self.view.addSubview(popup.view)
-        popup.didMove(toParent: self)
+    func setGradientBackground() {
+        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
         
-        if popup.answerLabel.text == popup.answerLabel.text {
-            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(correctAnswer)"
-        }
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        gradientLayer.frame = self.view.bounds
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-            popup.view.removeFromSuperview()
-        }
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
-    func showPopupForFinalScore() {
-        let popupFinalScore = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "finalScoreId") as! PopupFinalScoreViewController
-        self.addChild(popupFinalScore)
-        popupFinalScore.view.frame = self.view.frame
-        self.view.addSubview(popupFinalScore.view)
-        popupFinalScore.didMove(toParent: self)
-        
-        if popupFinalScore.nameLabel.text == popupFinalScore.nameLabel.text {
-            popupFinalScore.nameLabel.text = nameLabel.text
-        }
-        
-        if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
-            popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
-        }
-        let save = SaveNameAndScoreViewController()
-        save.name = [name] as! [String]
-        save.score = [increaseScore]
-    }
-    
-   
 }

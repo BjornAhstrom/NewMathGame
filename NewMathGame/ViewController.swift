@@ -12,16 +12,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     @IBOutlet weak var highScorePickerView: UIPickerView!
     @IBOutlet weak var playGameButton: UIButton!
     
-    let getSavedResult = SaveNameAndScoreViewController()
+    let getSavedResult = highScore()
+    var saved = "Namn : Poäng"
+    let backGC = BackgroundColorViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setGradientBackground()
         highScorePickerView.dataSource = self
         highScorePickerView.delegate = self
-    }
-    
-    func getResultFromTextFile(){
+        
+         //saved = String(UserDefaults.standard.object(forKey: "nameAndScore") as! String)
         
     }
     
@@ -30,26 +31,28 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return getSavedResult.name.count & getSavedResult.score.count
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         
-        return "\(getSavedResult.name[row]) - \(getSavedResult.score[row])"
+        return "\(saved)"
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     }
     
-    func setGradientBackground(colorTop: UIColor, colorBottom: UIColor){
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop.cgColor, colorBottom.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 1.0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 0.0)
-        gradientLayer.locations = [NSNumber(floatLiteral: 0.0), NSNumber(floatLiteral: 1.0)]
-        gradientLayer.frame = view.bounds
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        var pickerLabel: UILabel? = (view as? UILabel)
+        if pickerLabel == nil {
+            pickerLabel = UILabel()
+            pickerLabel?.font = UIFont(name: "Marker Felt", size: 30)
+            pickerLabel?.textAlignment = .center
+        }
+        pickerLabel?.text = saved
+        pickerLabel?.textColor = UIColor.magenta
         
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        return pickerLabel!
     }
     
 //    @IBAction func swedishLangButton(_ sender: UIButton) {
@@ -77,4 +80,17 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
 //            present(confirmAlertCtrl, animated: true, completion: nil)
 //        }
 //    }
+    
+    func setGradientBackground() {
+        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
+        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
+
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
+        gradientLayer.locations = [0.0, 0.5, 1.0]
+        gradientLayer.frame = self.view.bounds
+
+        self.view.layer.insertSublayer(gradientLayer, at: 0)
+    }
 }

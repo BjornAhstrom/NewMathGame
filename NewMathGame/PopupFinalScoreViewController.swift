@@ -12,10 +12,16 @@ class PopupFinalScoreViewController: UIViewController {
     
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nameLabel.font = UIFont(name: "Marker Felt", size: 30)
+        textLabel.font = UIFont(name: "Marker Felt", size: 30)
+        scoreLabel.font = UIFont(name: "Marker Felt", size: 30)
+        
         popupView.layer.cornerRadius = 20
         pulsate()
     }

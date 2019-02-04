@@ -6,7 +6,7 @@
 "0t0-gN-Cd4.text" = "Fel svar!";
 
 /* Class = "UIButton"; normalTitle = "Train on math tables"; ObjectID = "2DB-ra-obV"; */
-"2DB-ra-obV.normalTitle" = "Träna på mattetabeller";
+"2DB-ra-obV.normalTitle" = "Matte övningar";
 
 /* Class = "UIButton"; normalTitle = "1"; ObjectID = "2T3-ux-cOS"; */
 "2T3-ux-cOS.normalTitle" = "1";
@@ -66,7 +66,7 @@
 "Pnu-7N-pdN.normalTitle" = "Avsluta";
 
 /* Class = "UILabel"; text = "Division"; ObjectID = "QE6-Yu-h7w"; */
-"QE6-Yu-h7w.text" = "Division";
+"heD-N4-DHN.text" = "Division";
 
 /* Class = "UIButton"; normalTitle = "7"; ObjectID = "QJo-hX-PFx"; */
 "QJo-hX-PFx.normalTitle" = "7";
@@ -90,16 +90,16 @@
 "T4D-N9-go7.text" = "20";
 
 /* Class = "UILabel"; text = "Choose one or more counting methods"; ObjectID = "TTZ-0j-6kI"; */
-"TTZ-0j-6kI.text" = "Välj en eller flera räkningsmetoder";
+"TTZ-0j-6kI.text" = "Välj ett eller flera räknesätt";
 
 /* Class = "UILabel"; text = "Subtraction"; ObjectID = "TaP-Ph-Kug"; */
-"TaP-Ph-Kug.text" = "Subtraktion";
+"acl-9u-PVa.text" = "Subtraktion";
 
 /* Class = "UIButton"; normalTitle = "6"; ObjectID = "To5-CH-wuq"; */
 "To5-CH-wuq.normalTitle" = "6";
 
 /* Class = "UILabel"; text = "Addition"; ObjectID = "U3h-bw-lwN"; */
-"U3h-bw-lwN.text" = "Addition";
+"Ea5-t1-fag.text" = "Addition";
 
 /* Class = "UILabel"; text = "Name"; ObjectID = "UBP-qe-OnU"; */
 "UBP-qe-OnU.text" = "Namn";
@@ -132,7 +132,7 @@
 "fpf-RM-te5.normalTitle" = "Svara";
 
 /* Class = "UILabel"; text = "Multiplication"; ObjectID = "g7r-Lo-8Gp"; */
-"g7r-Lo-8Gp.text" = "Multiplikation";
+"Ibc-bs-qE7.text" = "Multiplikation";
 
 /* Class = "UIButton"; normalTitle = "3"; ObjectID = "gx2-x8-XVN"; */
 "gx2-x8-XVN.normalTitle" = "3";
@@ -164,8 +164,8 @@
 /* Class = "UIButton"; normalTitle = "Answer"; ObjectID = "ooq-k4-bOU"; */
 "ooq-k4-bOU.normalTitle" = "Svara";
 
-/* Class = "UITextView"; text = "Which counting method do you want to train on?"; ObjectID = "p1B-YZ-Cpd"; */
-"p1B-YZ-Cpd.text" = "Vilken räkningsmetod vill du träna på?";
+/* Class = "UILabel"; text = "Which counting method do you want to train on?"; ObjectID = "tfM-o1-1Ht"; */
+"tfM-o1-1Ht.text" = "Vilket räknesätt vill du träna på?";
 
 /* Class = "UIButton"; normalTitle = ","; ObjectID = "rb0-Ys-BWz"; */
 "rb0-Ys-BWz.normalTitle" = ",";
