@@ -9,9 +9,12 @@
 "restartTitle" = "App omstart krävs";
 "cancel" = "Ångra";
 "close" = "Stäng";
-"seconds" = "Sekunder";
+"seconds" = "Tid kvar";
 "points" = "Poäng";
 "answer_is" = "Svaret är";
 "select_easy" = "Lätt";
-"select_average" = "Medelsvårt";
+"select_medium" = "Medelsvårt";
 "select_difficult" = "Svårt";
+"alert_title" = "Gör om och gör rätt!";
+"alert_message" = "Du måste skriva ett namn och välja minst en operand";
+"alert_button" = "Försök igen";

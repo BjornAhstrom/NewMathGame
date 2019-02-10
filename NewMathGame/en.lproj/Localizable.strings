@@ -9,10 +9,13 @@
 "restartTitle" = "App restart required";
 "cancel" = "Cancel";
 "close" = "Close now";
-"seconds" = "Seconds";
+"seconds" = "Time left";
 "points" = "Points";
 "answer_is" = "Aswer is";
 "select_easy" = "Easy";
-"select_average" = "Average";
+"select_medium" = "Average";
 "select_difficult" = "Diffcult";
+"alert_title" = "Do it again and do it right!";
+"alert_message" = "You must write a name and select at least one operand";
+"alert_button" = "Try again";
 

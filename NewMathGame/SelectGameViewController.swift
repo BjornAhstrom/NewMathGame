@@ -29,15 +29,16 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
     @IBOutlet weak var difficultyPickerView: UIPickerView!
     @IBOutlet weak var chooseLabel: UILabel!
     
-    var operandIsSelected: Bool = false
     var savedValueFromPickerView: Int = 0
     var name: String = ""
     var difficulty: [String] = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setGradientBackground()
         hideKeyboard()
+        
         
         writeNameTextField.font = UIFont(name: "Marker Felt", size: 25)
         chooseLabel.numberOfLines = 2
@@ -50,12 +51,7 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         pickerView(difficultyPickerView, didSelectRow: defaultPickerRow, inComponent: 0)
         
         writeNameTextField.text! = name
-        difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_average", comment: ""), NSLocalizedString("select_difficult", comment: "")]
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
-        return false
+        difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -103,6 +99,7 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
             destination.multiplication = multiplicationButton.isSelected
             destination.division = divisionButton.isSelected
             destination.valueFromPickerView = savedValueFromPickerView
+            //destination.startGameTimer = true
             
             if let name = writeNameTextField.text {
                 destination.name = name
@@ -122,5 +119,5 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
-    
 }
+

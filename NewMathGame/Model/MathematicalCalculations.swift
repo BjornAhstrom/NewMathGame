@@ -8,8 +8,6 @@
 
 import UIKit
 
-class MathematicalCalculations {
-    
     var correctAnswer: Double = 0
     
     
@@ -37,4 +35,3 @@ class MathematicalCalculations {
         }
         return correctAnswer
     }
-}

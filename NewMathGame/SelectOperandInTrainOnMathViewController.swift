@@ -15,7 +15,6 @@ class SelectOperandInTrainOnMathViewController: UIViewController {
     @IBOutlet weak var divisionButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()

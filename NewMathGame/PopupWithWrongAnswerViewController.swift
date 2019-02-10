@@ -9,13 +9,15 @@
 import UIKit
 
 class PopupWithWrongAnswerViewController: UIViewController {
-    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.warning)
         
         textLabel.font = UIFont(name: "Marker Felt", size: 30)
         answerLabel.font = UIFont(name: "Marker Felt", size: 30)

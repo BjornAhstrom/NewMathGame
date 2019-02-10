@@ -9,19 +9,23 @@
 import UIKit
 
 class TrainOnMathViewController: UIViewController {
+    private var answer: Double = 0.0
+    private var tempAnswer: Double = 0.0
+    private var correctAnswer: Double = 0.0
+    private var firstNumber: Int = 0
+    private var secondNumber: Int = 0
+    private var operand: String = ""
+    
+    public var numberFromSenderTag : Int = 0
+    public var addition: Bool = false
+    public var subtraction: Bool = false
+    public var multiplication: Bool = false
+    public var division: Bool = false
+    
+  
     @IBOutlet weak var numberAndOperandLabel: UILabel!
+    @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var userInputLabel: UILabel!
-    
-    private var mathCalc = MathematicalCalculations()
-    var addition: Bool = false
-    var subtraction: Bool = false
-    var multiplication: Bool = false
-    var division: Bool = false
-    var correctAnswer: Double = 0
-    
-    var firstNumber: Int = 0
-    var secondNumber: Int = 0
-    var operand: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,8 @@ class TrainOnMathViewController: UIViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
+        equalLabel.font = UIFont(name: "Marker Felt", size: 60)
+        userInputLabel.font = UIFont(name: "Marker Felt", size: 40)
         giveFirstAndSecondNumbersRandomNumbers()
         
         if addition == true {
@@ -64,6 +70,8 @@ class TrainOnMathViewController: UIViewController {
         }
         else if multiplication == true {
             operand = "*"
+            print("\(numberFromSenderTag)")
+            firstNumber = numberFromSenderTag
         }
         else if division == true {
             operand = "/"
@@ -73,6 +81,7 @@ class TrainOnMathViewController: UIViewController {
                 secondNumber = temp
             }
         }
+        numberAndOperandLabel.font = UIFont(name: "Marker Felt", size: 40)
         numberAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
     
@@ -80,6 +89,12 @@ class TrainOnMathViewController: UIViewController {
         firstNumber = randomNumbers()
         secondNumber = randomNumbers()
         
+        if operand == "+" {
+            while firstNumber == 0 || secondNumber == 0 {
+                firstNumber = randomNumbers()
+                secondNumber = randomNumbers()
+            }
+        }
         if operand == "-" {
             while firstNumber == 0 || secondNumber == 0  {
                 firstNumber = randomNumbers()
@@ -95,35 +110,15 @@ class TrainOnMathViewController: UIViewController {
     }
     
     func mathematicalCalculations() {
-        let answer = Double(userInputLabel.text!)
-        switch operand {
-        case "+":
-            correctAnswer = Double(firstNumber + secondNumber)
-            
-            if correctAnswer != answer {
-                showPopupWithWrongAnswer()
-            }
-            break
-        case "-":
-            correctAnswer = Double(firstNumber - secondNumber)
-            if correctAnswer != answer {
-                showPopupWithWrongAnswer()
-            }
-            break
-        case "*":
-            correctAnswer = Double(firstNumber * secondNumber)
-            if correctAnswer != answer {
-                showPopupWithWrongAnswer()
-            }
-            break
-        case "/":
-            correctAnswer = Double(firstNumber / secondNumber)     //Kraschar när det blir noll
-            if correctAnswer != answer {
-                showPopupWithWrongAnswer()
-            }
-            break
-        default:
-            break
+        if let ans = Double(userInputLabel.text!) {
+            answer = ans
+        }
+        
+        tempAnswer = NewMathGame.mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
+        correctAnswer = Double(round(100*tempAnswer)/100)
+        
+        if correctAnswer != answer {
+            showPopupWithWrongAnswer()
         }
     }
     
@@ -139,8 +134,11 @@ class TrainOnMathViewController: UIViewController {
         self.view.addSubview(popup.view)
         popup.didMove(toParent: self)
         
-        if popup.answerLabel.text == popup.answerLabel.text {
-            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(correctAnswer)"
+        if operand == "/" {
+            tempAnswer = Double(round(100*correctAnswer)/100)
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(tempAnswer)"
+        } else {
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(String(format: "%.0f", correctAnswer))"
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {

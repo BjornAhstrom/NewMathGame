@@ -9,7 +9,6 @@
 import UIKit
 
 class PopupFinalScoreViewController: UIViewController {
-    
     @IBOutlet weak var popupView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
@@ -17,6 +16,9 @@ class PopupFinalScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
         
         nameLabel.font = UIFont(name: "Marker Felt", size: 30)
         textLabel.font = UIFont(name: "Marker Felt", size: 30)

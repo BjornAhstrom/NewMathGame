@@ -17,25 +17,29 @@ extension Array {
 }
 
 class GameViewController: UIViewController {
-    private let mathCalaculations = MathematicalCalculations()
-    private var correctAnswer: Double = 0.0
+    private var correctAnswer: Double = 0
+    private var tempAnswer: Double = 0
     private var firstNumber: Int = 0
     private var secondNumber: Int = 0
     private var increaseScore: Int = 0
     private var timer = Timer()
-    private var seconds: Int = 31
+    private var startGameTimer = Timer()
+    private var seconds: Int = 30
     private var arrayOfOperands = [String]()
+    private var answer: Double = 0
+    private var stopTimer: Bool = false
+    private var startGameSecond: Int = 4
     
-    var valueFromPickerView: Int = 0
-    var name: String?
-    var operand: String = ""
+    public var valueFromPickerView: Int = 0
+    public var name: String?
+    public var operand: String = ""
+    //public var startGameTimer: Bool = false
+    public var addition: Bool = false
+    public var subtraction: Bool = false
+    public var multiplication: Bool = false
+    public var division: Bool = false
     
-    var addition: Bool = false
-    var subtraction: Bool = false
-    var multiplication: Bool = false
-    var division: Bool = false
-    var stopTimer: Bool = false
-    
+    @IBOutlet weak var startGameTimerLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var increaseScoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
@@ -43,12 +47,67 @@ class GameViewController: UIViewController {
     @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
     
+    @IBOutlet weak var buttonZero: RoundButton!
+    @IBOutlet weak var buttonOne: RoundButton!
+    @IBOutlet weak var buttonTwo: RoundButton!
+    @IBOutlet weak var buttonThree: RoundButton!
+    @IBOutlet weak var buttonFour: RoundButton!
+    @IBOutlet weak var buttonFive: RoundButton!
+    @IBOutlet weak var buttonSix: RoundButton!
+    @IBOutlet weak var buttonSeven: RoundButton!
+    @IBOutlet weak var buttonEight: RoundButton!
+    @IBOutlet weak var buttonNine: RoundButton!
+    @IBOutlet weak var eraseButton: RoundButton!
+    @IBOutlet weak var commaButton: RoundButton!
+    @IBOutlet weak var quitButton: RoundButton!
+    @IBOutlet weak var answerButton: RoundButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setGradientBackground()
         
-        runTimer()
+        timerLabel.font = UIFont(name: "Marker Felt", size: 45)
+        timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
+        
+        buttonDisable()
+        runStartGameTimer()
         resetRandomNumbersInNumbersAndOperandLabel()
+    }
+    
+    func buttonEnable() {
+        buttonZero.isEnabled = true
+        buttonOne.isEnabled = true
+        buttonTwo.isEnabled = true
+        buttonThree.isEnabled = true
+        buttonFour.isEnabled = true
+        buttonFive.isEnabled = true
+        buttonSix.isEnabled = true
+        buttonSeven.isEnabled = true
+        buttonEight.isEnabled = true
+        buttonNine.isEnabled = true
+        eraseButton.isEnabled = true
+        commaButton.isEnabled = true
+        quitButton.isEnabled = true
+        answerButton.isEnabled = true
+        showNumbersAndOperandLabel.isHidden = false
+    }
+    
+    func buttonDisable() {
+        buttonZero.isEnabled = false
+        buttonOne.isEnabled = false
+        buttonTwo.isEnabled = false
+        buttonThree.isEnabled = false
+        buttonFour.isEnabled = false
+        buttonFive.isEnabled = false
+        buttonSix.isEnabled = false
+        buttonSeven.isEnabled = false
+        buttonEight.isEnabled = false
+        buttonNine.isEnabled = false
+        eraseButton.isEnabled = false
+        commaButton.isEnabled = false
+        quitButton.isEnabled = false
+        answerButton.isEnabled = false
+        showNumbersAndOperandLabel.isHidden = true
     }
     
     @IBAction func numberButtons(_ sender: UIButton) {
@@ -67,8 +126,14 @@ class GameViewController: UIViewController {
     @IBAction func quitButton(_ sender: UIButton) {
         showPopupForFinalScore()
         stopingTimer()
-        print("Timer Stopped with button press")
+        print("Quit button is pressed, Timer is stopped")
     }
+    
+//    func ifAnswerIsRight() {
+//        mathematicalCalculations()
+//        answerLabel.text! = ""
+//        resetRandomNumbersInNumbersAndOperandLabel()
+//    }
     
     @IBAction func answerButton(_ sender: UIButton) {
         mathematicalCalculations()
@@ -90,6 +155,7 @@ class GameViewController: UIViewController {
             }
             break
         case 1:
+            seconds += 15
             firstNumber = mediumRandomNumber()
             secondNumber = mediumRandomNumber()
             
@@ -101,6 +167,7 @@ class GameViewController: UIViewController {
             }
             break
         case 2:
+            seconds += 30
             firstNumber = difficultRandomNumber()
             secondNumber = difficultRandomNumber()
             
@@ -119,11 +186,11 @@ class GameViewController: UIViewController {
     func resetRandomNumbersInNumbersAndOperandLabel() {
         userSelectedDifficultyLevelInPickerView()
         
-        answerLabel.font = UIFont(name: "Marker Felt", size: 30)
-        equalLabel.font = UIFont(name: "Marker Felt", size: 35)
+        answerLabel.font = UIFont(name: "Marker Felt", size: 40)
+        equalLabel.font = UIFont(name: "Marker Felt", size: 60)
         
         if let names = name {
-            nameLabel.font = UIFont(name: "Marker Felt", size: 25)
+            nameLabel.font = UIFont(name: "Marker Felt", size: 30)
             nameLabel.text! = names
         }
         
@@ -150,20 +217,53 @@ class GameViewController: UIViewController {
             }
         }
         
-        if let test = arrayOfOperands.randomItem() {
-            operand = test
+        if addition != true && subtraction != true && multiplication != true && division != true || name == "" {
+            
+            let alertMessage = UIAlertView(title: "\(NSLocalizedString("alert_title", comment: ""))", message: "\(NSLocalizedString("alert_message", comment: ""))",delegate: nil, cancelButtonTitle: "\(NSLocalizedString("alert_button", comment: ""))")
+            alertMessage.show()
+            stopingTimer()
+            
+            let selectGameView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "selectGameID") as! SelectGameViewController
+            self.addChild(selectGameView)
+            selectGameView.view.frame = self.view.frame
+            self.view.addSubview(selectGameView.view)
+            selectGameView.didMove(toParent: self)
+            
+            if addition == true {
+                selectGameView.additionButton.isSelected = true
+            }
+            if subtraction == true {
+                selectGameView.subtractionButton.isSelected = true
+            }
+            if multiplication == true {
+                selectGameView.multiplicationButton.isSelected = true
+            }
+            if division == true {
+                selectGameView.divisionButton.isSelected = true
+            }
+            if name != "" {
+                selectGameView.writeNameTextField.text = name!
+            }
         }
         
-        increaseScoreLabel.font = UIFont(name: "Marker Felt", size: 25)
+        if let operandShuffle = arrayOfOperands.randomItem() {
+            operand = operandShuffle
+        }
+        
+        increaseScoreLabel.font = UIFont(name: "Marker Felt", size: 30)
         increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
-        showNumbersAndOperandLabel.font = UIFont(name: "Marker Felt", size: 35)
+        showNumbersAndOperandLabel.font = UIFont(name: "Marker Felt", size: 40)
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
     
     func mathematicalCalculations() {
-        let answer = Double(answerLabel.text!)
+        if let ans = Double(answerLabel.text!) {
+            answer = ans
+            answer = Double(round(100*ans)/100)
+        }
         
-        correctAnswer = mathCalaculations.mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
+        tempAnswer = NewMathGame.mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
+        correctAnswer = Double(round(100*tempAnswer)/100)
         
         if correctAnswer == answer {
             increaseScore += 1
@@ -173,32 +273,33 @@ class GameViewController: UIViewController {
     }
     
     func showPopupWithWrongAnswer() {
+        buttonDisable()
         let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
         self.addChild(popup)
         popup.view.frame = self.view.frame
         self.view.addSubview(popup.view)
         popup.didMove(toParent: self)
         
-        if popup.answerLabel.text == popup.answerLabel.text {
-            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(correctAnswer)"
+        if operand == "/" {
+               tempAnswer = Double(round(100*correctAnswer)/100)
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(tempAnswer)"
+        } else {
+            popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(String(format: "%.0f", correctAnswer))"
         }
         
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.buttonEnable()
             popup.view.removeFromSuperview()
         }
     }
     
     func showPopupForFinalScore() {
-        let saveNameAndScore = highScore()
-        
         let popupFinalScore = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "finalScoreId") as! PopupFinalScoreViewController
         self.addChild(popupFinalScore)
         popupFinalScore.view.frame = self.view.frame
         self.view.addSubview(popupFinalScore.view)
         popupFinalScore.didMove(toParent: self)
-        
-        saveNameAndScore.saveNameAndScore(name: name!, score: increaseScore)
-        saveNameAndScore.saveUserData()
         
         if popupFinalScore.nameLabel.text == popupFinalScore.nameLabel.text {
             popupFinalScore.nameLabel.text = nameLabel.text
@@ -207,6 +308,8 @@ class GameViewController: UIViewController {
         if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
             popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
+        
+        //HighScoreList.add(name: name!, score: increaseScore)
     }
     
     func easyRandomNumber() -> Int {
@@ -227,18 +330,37 @@ class GameViewController: UIViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
-    @objc func updateTimer() {
-        if seconds < 1 {
-            timer.invalidate()
-            //Send alert to indicate "time's up!"
-            print("timer stopped when times ran out")
-            showPopupForFinalScore()
+    func runStartGameTimer() {
+        startGameTimer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameViewController.updateStartGameTimer)), userInfo: nil, repeats: true)
+    }
+    
+    @objc func updateStartGameTimer() {
+        if startGameSecond < 1 {
+            startGameTimer.invalidate()
+            startGameTimerLabel.isHidden = true
+            buttonEnable()
+            runTimer()
         } else {
-            seconds -= 1
-            timerLabel.font = UIFont(name: "Marker Felt", size: 25)
-            timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
+            startGameSecond -= 1
+            startGameTimerLabel.font = UIFont(name: "Marker Felt", size: 200)
+            startGameTimerLabel.text! = "\(startGameSecond)"
         }
     }
+    
+    @objc func updateTimer() {
+            if seconds < 1 {
+                timer.invalidate()
+                //Send alert to indicate "time's up!"
+                print("timer stopped when times ran out")
+                showPopupForFinalScore()
+            } else {
+                seconds -= 1
+                timerLabel.font = UIFont(name: "Marker Felt", size: 45)
+                timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
+
+            }
+        }
+    
     
     func stopingTimer() {
         if self.stopTimer == false {
