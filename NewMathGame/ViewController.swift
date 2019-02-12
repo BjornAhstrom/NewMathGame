@@ -8,11 +8,12 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class ViewController: ColorViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     @IBOutlet weak var highScorePickerView: UIPickerView!
     @IBOutlet weak var playGameButton: UIButton!
+    @IBOutlet weak var mathExerciseButton: UIButton!
     @IBOutlet weak var appNameLabel: UILabel!
-    
+
     let getSavedResult = HighScoreList()
     var saved = "Name : Score"
     
@@ -21,11 +22,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
+        imagesAndFontsOnButtons()
+        appNameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 95)!
+        
         highScorePickerView.dataSource = self
         highScorePickerView.delegate = self
-        
-        //appNameLabel.textColor = UIColor.magenta
         
 //        for player in getSavedResult.highScore {
 //            print("\(player.name) score \(player.score)")
@@ -34,6 +35,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         highScore = HighScoreList.getHighScore()
         highScoreNames = Array((highScore?.keys)!)
         
+        
+    }
+    
+    func imagesAndFontsOnButtons() {
+        playGameButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        playGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        mathExerciseButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        mathExerciseButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -55,7 +64,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Marker Felt", size: 30)
+            pickerLabel?.font = UIFont(name: Theme.current.fontForLabels, size: 30)
             pickerLabel?.textAlignment = .center
         }
         
@@ -91,17 +100,4 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     //            present(confirmAlertCtrl, animated: true, completion: nil)
     //        }
     //    }
-    
-    func setGradientBackground() {
-        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
-    }
 }

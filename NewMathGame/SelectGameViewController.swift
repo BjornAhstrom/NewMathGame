@@ -20,14 +20,22 @@ extension UIViewController {
     }
 }
 
-class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    
+    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var additionButton: RoundButton!
     @IBOutlet weak var subtractionButton: RoundButton!
     @IBOutlet weak var multiplicationButton: RoundButton!
     @IBOutlet weak var divisionButton: RoundButton!
     @IBOutlet weak var writeNameTextField: UITextField!
     @IBOutlet weak var difficultyPickerView: UIPickerView!
+    @IBOutlet weak var selectTextLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
+    @IBOutlet weak var startGameButton: UIButton!
+    @IBOutlet weak var additionLabel: UILabel!
+    @IBOutlet weak var subtractionLabel: UILabel!
+    @IBOutlet weak var multiplicationLabel: UILabel!
+    @IBOutlet weak var divisionLabel: UILabel!
     
     var savedValueFromPickerView: Int = 0
     var name: String = ""
@@ -35,13 +43,9 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setGradientBackground()
+        fontOnLabel()
+        fontAndImagesOnButtons()
         hideKeyboard()
-        
-        
-        writeNameTextField.font = UIFont(name: "Marker Felt", size: 25)
-        chooseLabel.numberOfLines = 2
         
         self.difficultyPickerView.delegate = self
         self.difficultyPickerView.dataSource = self
@@ -52,6 +56,24 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         
         writeNameTextField.text! = name
         difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
+    }
+    
+    func fontAndImagesOnButtons() {
+        backButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 40)
+        startGameButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
+        startGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+    }
+    
+    func fontOnLabel() {
+        selectTextLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        writeNameTextField.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        chooseLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        chooseLabel.numberOfLines = 2
+        
+        additionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        subtractionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        multiplicationLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        divisionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -72,7 +94,7 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
         var pickerLabel: UILabel? = (view as? UILabel)
         if pickerLabel == nil {
             pickerLabel = UILabel()
-            pickerLabel?.font = UIFont(name: "Marker Felt", size: 30)
+            pickerLabel?.font = UIFont(name: Theme.current.fontForLabels, size: 30)
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = difficulty[row]
@@ -105,19 +127,6 @@ class SelectGameViewController: UIViewController, UIPickerViewDataSource, UIPick
                 destination.name = name
             }
         }
-    }
-    
-    func setGradientBackground() {
-        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }
 

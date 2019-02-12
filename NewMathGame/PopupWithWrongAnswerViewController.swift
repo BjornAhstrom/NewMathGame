@@ -15,17 +15,17 @@ class PopupWithWrongAnswerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.warning)
         
-        textLabel.font = UIFont(name: "Marker Felt", size: 30)
-        answerLabel.font = UIFont(name: "Marker Felt", size: 30)
+        textLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         popupView.layer.cornerRadius = 20
         shake()
     }
     
     func shake() {
+        popupView.backgroundColor = UIColor(red: 255.0/255, green: 30.0/255, blue: 35.0/255, alpha: 0.7)
         let shake = CABasicAnimation(keyPath: "position")
         shake.duration = 0.1
         shake.repeatCount = 2
@@ -41,5 +41,10 @@ class PopupWithWrongAnswerViewController: UIViewController {
         shake.toValue = toValue
         
         popupView.layer.add(shake, forKey: nil)
+    }
+    
+    func backGround() {
+        
+        
     }
 }

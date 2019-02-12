@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectOperandInTrainOnMathViewController: UIViewController {
+class SelectOperandInTrainOnMathViewController: ColorViewController {
     @IBOutlet weak var additionButton: UIButton!
     @IBOutlet weak var subtractionButton: UIButton!
     @IBOutlet weak var multiplicationButton: UIButton!
@@ -17,9 +17,20 @@ class SelectOperandInTrainOnMathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
+        fontAndImagesButtons()
+        questionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         questionLabel.numberOfLines = 2
-
+    }
+    
+    func fontAndImagesButtons() {
+        additionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        additionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
+        subtractionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        subtractionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
+        multiplicationButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        multiplicationButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
+        divisionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+        divisionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,18 +50,5 @@ class SelectOperandInTrainOnMathViewController: UIViewController {
             let destination = segue.destination as! TrainOnMathViewController
             destination.division = divisionButton.isEnabled
         }
-    }
-    
-    func setGradientBackground() {
-        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

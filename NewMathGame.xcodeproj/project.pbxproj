@@ -28,7 +28,12 @@
 		1E6D24DF2210581300230D88 /* Chalkduster.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E6D24DE2210581300230D88 /* Chalkduster.ttf */; };
 		1E6D24E1221058AB00230D88 /* MarkerFelt.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 1E6D24E0221058AB00230D88 /* MarkerFelt.ttc */; };
 		1E7C3D51220336AC0033BD34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E7C3D50220336AC0033BD34 /* Assets.xcassets */; };
-		1ED8A3A22208313800DF1164 /* BackgroundColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */; };
+		1E92E70B2210988900D8CA1B /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E70A2210988900D8CA1B /* Color.xcassets */; };
+		1E92E70E2210A68E00D8CA1B /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */; };
+		1E92E7102210A7BC00D8CA1B /* BlueColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E70F2210A7BC00D8CA1B /* BlueColorTheme.swift */; };
+		1E92E7122210A7D200D8CA1B /* GrayColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */; };
+		1E92E71422115A5F00D8CA1B /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E71322115A5F00D8CA1B /* ColorViewController.swift */; };
+		1E92E7182211E02700D8CA1B /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E7172211E02700D8CA1B /* SideMenuViewController.swift */; };
 		1ED8A3AC2209EC5F00DF1164 /* HighScoreList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1ED8A3AB2209EC5F00DF1164 /* HighScoreList.swift */; };
 /* End PBXBuildFile section */
 
@@ -80,7 +85,12 @@
 		1E6D24DE2210581300230D88 /* Chalkduster.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chalkduster.ttf; sourceTree = "<group>"; };
 		1E6D24E0221058AB00230D88 /* MarkerFelt.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = MarkerFelt.ttc; sourceTree = "<group>"; };
 		1E7C3D50220336AC0033BD34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColorViewController.swift; sourceTree = "<group>"; };
+		1E92E70A2210988900D8CA1B /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
+		1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
+		1E92E70F2210A7BC00D8CA1B /* BlueColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueColorTheme.swift; sourceTree = "<group>"; };
+		1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayColorTheme.swift; sourceTree = "<group>"; };
+		1E92E71322115A5F00D8CA1B /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		1E92E7172211E02700D8CA1B /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		1ED8A3AB2209EC5F00DF1164 /* HighScoreList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -112,6 +122,7 @@
 		1E21230221F889C60097E3B0 = {
 			isa = PBXGroup;
 			children = (
+				1E92E7172211E02700D8CA1B /* SideMenuViewController.swift */,
 				1E21230D21F889C60097E3B0 /* NewMathGame */,
 				1E21232221F889C70097E3B0 /* NewMathGameTests */,
 				1E21232D21F889C70097E3B0 /* NewMathGameUITests */,
@@ -137,6 +148,7 @@
 				1E21230E21F889C60097E3B0 /* AppDelegate.swift */,
 				1E21231021F889C60097E3B0 /* ViewController.swift */,
 				1E21231221F889C60097E3B0 /* Main.storyboard */,
+				1E92E71322115A5F00D8CA1B /* ColorViewController.swift */,
 				1E6D24D5220C2FA000230D88 /* MathTableViewController.swift */,
 				1E21234421F894530097E3B0 /* SelectGameViewController.swift */,
 				1E21234621F894700097E3B0 /* GameViewController.swift */,
@@ -175,18 +187,29 @@
 		1E6D24DB2210567600230D88 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1E92E70C2210A65000D8CA1B /* Them */,
 				1E6D24E0221058AB00230D88 /* MarkerFelt.ttc */,
 				1E6D24DE2210581300230D88 /* Chalkduster.ttf */,
-				1E6D24DC221056BC00230D88 /* Theme.swift */,
+				1E92E70A2210988900D8CA1B /* Color.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		1E92E70C2210A65000D8CA1B /* Them */ = {
+			isa = PBXGroup;
+			children = (
+				1E6D24DC221056BC00230D88 /* Theme.swift */,
+				1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */,
+				1E92E70F2210A7BC00D8CA1B /* BlueColorTheme.swift */,
+				1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */,
+			);
+			path = Them;
 			sourceTree = "<group>";
 		};
 		1ED8A39E2208279C00DF1164 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
-				1ED8A3A12208313800DF1164 /* BackgroundColorViewController.swift */,
 				1ED8A3AB2209EC5F00DF1164 /* HighScoreList.swift */,
 			);
 			path = Model;
@@ -301,6 +324,7 @@
 				1E7C3D51220336AC0033BD34 /* Assets.xcassets in Resources */,
 				1E6D24DF2210581300230D88 /* Chalkduster.ttf in Resources */,
 				1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */,
+				1E92E70B2210988900D8CA1B /* Color.xcassets in Resources */,
 				1E6D24E1221058AB00230D88 /* MarkerFelt.ttc in Resources */,
 				1E21231421F889C60097E3B0 /* Main.storyboard in Resources */,
 			);
@@ -329,13 +353,17 @@
 			files = (
 				1ED8A3AC2209EC5F00DF1164 /* HighScoreList.swift in Sources */,
 				1E21234721F894700097E3B0 /* GameViewController.swift in Sources */,
+				1E92E7122210A7D200D8CA1B /* GrayColorTheme.swift in Sources */,
 				1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */,
+				1E92E70E2210A68E00D8CA1B /* ThemeProtocol.swift in Sources */,
 				1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */,
 				1E21231121F889C60097E3B0 /* ViewController.swift in Sources */,
 				1E6D24D6220C2FA000230D88 /* MathTableViewController.swift in Sources */,
 				1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */,
+				1E92E71422115A5F00D8CA1B /* ColorViewController.swift in Sources */,
 				1E21234121F890E60097E3B0 /* RoundButton.swift in Sources */,
-				1ED8A3A22208313800DF1164 /* BackgroundColorViewController.swift in Sources */,
+				1E92E7182211E02700D8CA1B /* SideMenuViewController.swift in Sources */,
+				1E92E7102210A7BC00D8CA1B /* BlueColorTheme.swift in Sources */,
 				1E21234521F894530097E3B0 /* SelectGameViewController.swift in Sources */,
 				1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */,
 				1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */,

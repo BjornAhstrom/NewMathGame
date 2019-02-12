@@ -16,7 +16,7 @@ extension Array {
     }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: ColorViewController {
     private var correctAnswer: Double = 0
     private var tempAnswer: Double = 0
     private var firstNumber: Int = 0
@@ -24,7 +24,7 @@ class GameViewController: UIViewController {
     private var increaseScore: Int = 0
     private var timer = Timer()
     private var startGameTimer = Timer()
-    private var seconds: Int = 30
+    private var seconds: Int = 0
     private var arrayOfOperands = [String]()
     private var answer: Double = 0
     private var stopTimer: Bool = false
@@ -41,7 +41,7 @@ class GameViewController: UIViewController {
     
     @IBOutlet weak var startGameTimerLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var increaseScoreLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var showNumbersAndOperandLabel: UILabel!
     @IBOutlet weak var equalLabel: UILabel!
@@ -64,14 +64,55 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
+        fontOnButtons()
         
-        timerLabel.font = UIFont(name: "Marker Felt", size: 45)
+        if valueFromPickerView == 0 {
+            seconds += 30
+        }
+        if valueFromPickerView == 1 {
+            seconds += 45
+        }
+        if valueFromPickerView == 2 {
+             seconds += 60
+        }
+        
+        timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
         timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
         
         buttonDisable()
         runStartGameTimer()
         resetRandomNumbersInNumbersAndOperandLabel()
+    }
+    
+    func fontOnButtons() {
+        buttonZero.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonZero.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonOne.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonOne.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonTwo.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonTwo.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonThree.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonThree.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonFour.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonFour.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonFive.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonFive.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonSix.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonSix.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonSeven.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonSeven.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonEight.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonEight.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonNine.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonNine.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        eraseButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        eraseButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        commaButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        commaButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
+        quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        answerButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
+        answerButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
     }
     
     func buttonEnable() {
@@ -155,7 +196,6 @@ class GameViewController: UIViewController {
             }
             break
         case 1:
-            seconds += 15
             firstNumber = mediumRandomNumber()
             secondNumber = mediumRandomNumber()
             
@@ -167,7 +207,6 @@ class GameViewController: UIViewController {
             }
             break
         case 2:
-            seconds += 30
             firstNumber = difficultRandomNumber()
             secondNumber = difficultRandomNumber()
             
@@ -186,11 +225,11 @@ class GameViewController: UIViewController {
     func resetRandomNumbersInNumbersAndOperandLabel() {
         userSelectedDifficultyLevelInPickerView()
         
-        answerLabel.font = UIFont(name: "Marker Felt", size: 40)
-        equalLabel.font = UIFont(name: "Marker Felt", size: 60)
+        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
         
         if let names = name {
-            nameLabel.font = UIFont(name: "Marker Felt", size: 30)
+            nameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
             nameLabel.text! = names
         }
         
@@ -250,9 +289,9 @@ class GameViewController: UIViewController {
             operand = operandShuffle
         }
         
-        increaseScoreLabel.font = UIFont(name: "Marker Felt", size: 30)
-        increaseScoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
-        showNumbersAndOperandLabel.font = UIFont(name: "Marker Felt", size: 40)
+        scoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        scoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
+        showNumbersAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
     
@@ -342,7 +381,7 @@ class GameViewController: UIViewController {
             runTimer()
         } else {
             startGameSecond -= 1
-            startGameTimerLabel.font = UIFont(name: "Marker Felt", size: 200)
+            startGameTimerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 200)
             startGameTimerLabel.text! = "\(startGameSecond)"
         }
     }
@@ -355,7 +394,7 @@ class GameViewController: UIViewController {
                 showPopupForFinalScore()
             } else {
                 seconds -= 1
-                timerLabel.font = UIFont(name: "Marker Felt", size: 45)
+                timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
                 timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
 
             }
@@ -367,18 +406,5 @@ class GameViewController: UIViewController {
             timer.invalidate()
             self.stopTimer = true
         }
-    }
-    
-    func setGradientBackground() {
-        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

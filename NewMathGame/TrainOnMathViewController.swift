@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainOnMathViewController: UIViewController {
+class TrainOnMathViewController: ColorViewController {
     private var answer: Double = 0.0
     private var tempAnswer: Double = 0.0
     private var correctAnswer: Double = 0.0
@@ -22,15 +22,95 @@ class TrainOnMathViewController: UIViewController {
     public var multiplication: Bool = false
     public var division: Bool = false
     
-  
     @IBOutlet weak var numberAndOperandLabel: UILabel!
     @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var userInputLabel: UILabel!
     
+    @IBOutlet weak var buttonZero: RoundButton!
+    @IBOutlet weak var buttonOne: RoundButton!
+    @IBOutlet weak var buttonTwo: RoundButton!
+    @IBOutlet weak var buttonThree: RoundButton!
+    @IBOutlet weak var buttonFour: RoundButton!
+    @IBOutlet weak var buttonFive: RoundButton!
+    @IBOutlet weak var buttonSix: RoundButton!
+    @IBOutlet weak var buttonSeven: RoundButton!
+    @IBOutlet weak var buttonEight: RoundButton!
+    @IBOutlet weak var buttonNine: RoundButton!
+    @IBOutlet weak var eraseButton: RoundButton!
+    @IBOutlet weak var commaButton: RoundButton!
+    @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet weak var answerButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setGradientBackground()
+        fontAndImagesButtons()
         resetRandomNumbersInNumbersAndOperandLabel()
+    }
+    
+    func fontAndImagesButtons() {
+        buttonZero.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonZero.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonOne.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonOne.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonTwo.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonTwo.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonThree.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonThree.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonFour.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonFour.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonFive.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonFive.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonSix.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonSix.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonSeven.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonSeven.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonEight.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonEight.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        buttonNine.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        buttonNine.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        eraseButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        eraseButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        commaButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+        commaButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
+        quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        answerButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
+        answerButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+    }
+    
+    func buttonEnable() {
+        buttonZero.isEnabled = true
+        buttonOne.isEnabled = true
+        buttonTwo.isEnabled = true
+        buttonThree.isEnabled = true
+        buttonFour.isEnabled = true
+        buttonFive.isEnabled = true
+        buttonSix.isEnabled = true
+        buttonSeven.isEnabled = true
+        buttonEight.isEnabled = true
+        buttonNine.isEnabled = true
+        eraseButton.isEnabled = true
+        commaButton.isEnabled = true
+        quitButton.isEnabled = true
+        answerButton.isEnabled = true
+    }
+    
+    func buttonDisable() {
+        buttonZero.isEnabled = false
+        buttonOne.isEnabled = false
+        buttonTwo.isEnabled = false
+        buttonThree.isEnabled = false
+        buttonFour.isEnabled = false
+        buttonFive.isEnabled = false
+        buttonSix.isEnabled = false
+        buttonSeven.isEnabled = false
+        buttonEight.isEnabled = false
+        buttonNine.isEnabled = false
+        eraseButton.isEnabled = false
+        commaButton.isEnabled = false
+        quitButton.isEnabled = false
+        answerButton.isEnabled = false
     }
     
     @IBAction func numberButtons(_ sender: UIButton) {
@@ -53,8 +133,8 @@ class TrainOnMathViewController: UIViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
-        equalLabel.font = UIFont(name: "Marker Felt", size: 60)
-        userInputLabel.font = UIFont(name: "Marker Felt", size: 40)
+        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
+        userInputLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
         giveFirstAndSecondNumbersRandomNumbers()
         
         if addition == true {
@@ -81,7 +161,7 @@ class TrainOnMathViewController: UIViewController {
                 secondNumber = temp
             }
         }
-        numberAndOperandLabel.font = UIFont(name: "Marker Felt", size: 40)
+        numberAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
         numberAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
     
@@ -128,6 +208,7 @@ class TrainOnMathViewController: UIViewController {
     }
     
     func showPopupWithWrongAnswer() {
+        buttonDisable()
         let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
         self.addChild(popup)
         popup.view.frame = self.view.frame
@@ -142,20 +223,8 @@ class TrainOnMathViewController: UIViewController {
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+            self.buttonEnable()
             popup.view.removeFromSuperview()
         }
-    }
-    
-    func setGradientBackground() {
-        let colorTop =    UIColor(red: 0.0/255.0, green: 191.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorMiddle = UIColor(red: 255.0/255.0, green: 255.0/255.0, blue: 255.0/255.0, alpha: 1.0).cgColor
-        let colorBottom = UIColor(red: 65.0/255.0, green: 105.0/255.0, blue: 225.0/255.0, alpha: 1.0).cgColor
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorMiddle, colorBottom]
-        gradientLayer.locations = [0.0, 0.5, 1.0]
-        gradientLayer.frame = self.view.bounds
-        
-        self.view.layer.insertSublayer(gradientLayer, at: 0)
     }
 }

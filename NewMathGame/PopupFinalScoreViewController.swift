@@ -13,19 +13,29 @@ class PopupFinalScoreViewController: UIViewController {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet weak var playAgainButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        fontAndImagesOnButton()
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
         
-        nameLabel.font = UIFont(name: "Marker Felt", size: 30)
-        textLabel.font = UIFont(name: "Marker Felt", size: 30)
-        scoreLabel.font = UIFont(name: "Marker Felt", size: 30)
+        nameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        textLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        scoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         
         popupView.layer.cornerRadius = 20
         pulsate()
+    }
+    
+    func fontAndImagesOnButton() {
+        quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
+        quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
+        playAgainButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
+        playAgainButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -39,6 +49,7 @@ class PopupFinalScoreViewController: UIViewController {
     }
     
     func pulsate() {
+        popupView.backgroundColor = UIColor(red: 3.0/255, green: 154.0/255, blue: 240.0/255, alpha: 0.7)
         let pulse = CASpringAnimation(keyPath: "transform.scale")
         pulse.duration = 0.8
         pulse.fromValue = 0.85

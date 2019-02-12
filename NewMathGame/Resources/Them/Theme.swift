@@ -9,6 +9,5 @@
 import UIKit
 
 class Theme {
-    static var mainFontForLabels = "MarkerFelt-Thin"
-    static var mainFontForButtons = "Chalkduster"
+    static var current: ThemeProtocol = BlueColorTheme()
 }
