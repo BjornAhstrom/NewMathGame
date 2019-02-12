@@ -27,15 +27,13 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     @IBOutlet weak var subtractionButton: RoundButton!
     @IBOutlet weak var multiplicationButton: RoundButton!
     @IBOutlet weak var divisionButton: RoundButton!
+    
     @IBOutlet weak var writeNameTextField: UITextField!
     @IBOutlet weak var difficultyPickerView: UIPickerView!
     @IBOutlet weak var selectTextLabel: UILabel!
     @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
-    @IBOutlet weak var additionLabel: UILabel!
-    @IBOutlet weak var subtractionLabel: UILabel!
-    @IBOutlet weak var multiplicationLabel: UILabel!
-    @IBOutlet weak var divisionLabel: UILabel!
+    @IBOutlet var labels: [UILabel]!
     
     var savedValueFromPickerView: Int = 0
     var name: String = ""
@@ -44,7 +42,7 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
         fontOnLabel()
-        fontAndImagesOnButtons()
+        fontAndImagesOnOperandButtons()
         hideKeyboard()
         
         self.difficultyPickerView.delegate = self
@@ -54,26 +52,22 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         difficultyPickerView.selectRow(defaultPickerRow, inComponent: 0, animated: false)
         pickerView(difficultyPickerView, didSelectRow: defaultPickerRow, inComponent: 0)
         
+        writeNameTextField.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         writeNameTextField.text! = name
         difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
     }
     
-    func fontAndImagesOnButtons() {
+    func fontAndImagesOnOperandButtons() {
         backButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 40)
         startGameButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
         startGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
     }
     
     func fontOnLabel() {
-        selectTextLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        writeNameTextField.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        chooseLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        chooseLabel.numberOfLines = 2
+        for fontOnLabel in labels {
+            fontOnLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        }
         
-        additionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        subtractionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        multiplicationLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
-        divisionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -121,7 +115,6 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
             destination.multiplication = multiplicationButton.isSelected
             destination.division = divisionButton.isSelected
             destination.valueFromPickerView = savedValueFromPickerView
-            //destination.startGameTimer = true
             
             if let name = writeNameTextField.text {
                 destination.name = name

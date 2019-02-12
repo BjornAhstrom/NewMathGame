@@ -301,11 +301,15 @@
                         <viewLayoutGuide key="safeArea" id="wVU-rO-eRJ"/>
                     </view>
                     <connections>
-                        <outlet property="additionButton" destination="IQf-X0-JEy" id="bqY-eO-YdE"/>
-                        <outlet property="divisionButton" destination="AXN-7y-eeB" id="HuM-tb-VIp"/>
-                        <outlet property="multiplicationButton" destination="jUv-oQ-H6H" id="Yz5-b8-5Lc"/>
+                        <outlet property="additionButton" destination="IQf-X0-JEy" id="ibc-tD-ScT"/>
+                        <outlet property="divisionButton" destination="AXN-7y-eeB" id="oWo-gt-jV6"/>
+                        <outlet property="multiplicationButton" destination="jUv-oQ-H6H" id="sBc-Qy-ytP"/>
                         <outlet property="questionLabel" destination="tfM-o1-1Ht" id="Qkp-Ui-w3N"/>
-                        <outlet property="subtractionButton" destination="GNk-Ya-SJl" id="4a3-7N-daf"/>
+                        <outlet property="subtractionButton" destination="GNk-Ya-SJl" id="p4X-13-PrB"/>
+                        <outletCollection property="choosOperandButtons" destination="IQf-X0-JEy" collectionClass="NSMutableArray" id="kkI-MI-2GU"/>
+                        <outletCollection property="choosOperandButtons" destination="GNk-Ya-SJl" collectionClass="NSMutableArray" id="mwq-JQ-L4p"/>
+                        <outletCollection property="choosOperandButtons" destination="jUv-oQ-H6H" collectionClass="NSMutableArray" id="Wzr-5s-OIR"/>
+                        <outletCollection property="choosOperandButtons" destination="AXN-7y-eeB" collectionClass="NSMutableArray" id="NtW-fJ-0R5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Lq-Tv-dVd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -684,17 +688,17 @@
                         <viewLayoutGuide key="safeArea" id="8gH-Mj-eTQ"/>
                     </view>
                     <connections>
-                        <outlet property="buttonEight" destination="DTs-aB-teR" id="l0s-Pn-GB5"/>
-                        <outlet property="buttonFive" destination="4vD-Z9-QD7" id="1bS-m6-cMw"/>
-                        <outlet property="buttonFour" destination="cCk-vU-Di5" id="izF-Lm-iBp"/>
-                        <outlet property="buttonNine" destination="jBD-sK-eMJ" id="Ka1-ro-nFw"/>
-                        <outlet property="buttonOne" destination="A57-Pc-Jdn" id="Mex-kr-7cK"/>
-                        <outlet property="buttonSeven" destination="EtI-lz-GHN" id="5b8-uO-YLt"/>
-                        <outlet property="buttonSix" destination="fIf-vd-Kju" id="j7z-bL-7f1"/>
-                        <outlet property="buttonTen" destination="RqR-xZ-MOA" id="bPB-Jn-oiz"/>
-                        <outlet property="buttonThree" destination="evz-vh-F5g" id="HwO-91-WJy"/>
-                        <outlet property="buttonTwo" destination="yOs-o9-uUz" id="KbA-ul-57U"/>
                         <outlet property="topLabel" destination="SZZ-17-kGx" id="073-rZ-1Ns"/>
+                        <outletCollection property="mathNumberButtons" destination="A57-Pc-Jdn" collectionClass="NSMutableArray" id="O1U-gf-Z2G"/>
+                        <outletCollection property="mathNumberButtons" destination="yOs-o9-uUz" collectionClass="NSMutableArray" id="aSM-Bf-zf7"/>
+                        <outletCollection property="mathNumberButtons" destination="evz-vh-F5g" collectionClass="NSMutableArray" id="xoP-b9-8aC"/>
+                        <outletCollection property="mathNumberButtons" destination="cCk-vU-Di5" collectionClass="NSMutableArray" id="AGA-Lb-yBa"/>
+                        <outletCollection property="mathNumberButtons" destination="4vD-Z9-QD7" collectionClass="NSMutableArray" id="FkP-gg-qXb"/>
+                        <outletCollection property="mathNumberButtons" destination="fIf-vd-Kju" collectionClass="NSMutableArray" id="E2i-20-Wv8"/>
+                        <outletCollection property="mathNumberButtons" destination="EtI-lz-GHN" collectionClass="NSMutableArray" id="gct-WF-J03"/>
+                        <outletCollection property="mathNumberButtons" destination="DTs-aB-teR" collectionClass="NSMutableArray" id="l8W-TL-0Te"/>
+                        <outletCollection property="mathNumberButtons" destination="jBD-sK-eMJ" collectionClass="NSMutableArray" id="zKi-bP-2go"/>
+                        <outletCollection property="mathNumberButtons" destination="RqR-xZ-MOA" collectionClass="NSMutableArray" id="1Va-ii-Fk7"/>
                         <segue destination="zxJ-ka-93m" kind="presentation" identifier="multiplicationSegue" modalTransitionStyle="crossDissolve" id="vfa-Ej-edV"/>
                     </connections>
                 </viewController>
@@ -1053,22 +1057,22 @@
                     </view>
                     <connections>
                         <outlet property="answerButton" destination="fpf-RM-te5" id="Chk-P2-ehg"/>
-                        <outlet property="buttonEight" destination="W6Z-ze-ADL" id="eBs-70-qJq"/>
-                        <outlet property="buttonFive" destination="mk5-V1-ZQj" id="cjx-3D-OfI"/>
-                        <outlet property="buttonFour" destination="oCX-WO-q8t" id="gCQ-gp-bHd"/>
-                        <outlet property="buttonNine" destination="zTc-Bc-tGO" id="meV-eh-KOt"/>
-                        <outlet property="buttonOne" destination="2T3-ux-cOS" id="OVK-qt-ZhA"/>
-                        <outlet property="buttonSeven" destination="QJo-hX-PFx" id="4kT-fP-uQC"/>
-                        <outlet property="buttonSix" destination="To5-CH-wuq" id="xUw-bp-kRP"/>
-                        <outlet property="buttonThree" destination="gx2-x8-XVN" id="LNb-Ch-pBw"/>
-                        <outlet property="buttonTwo" destination="esX-pD-vKq" id="1pr-8f-vHe"/>
-                        <outlet property="buttonZero" destination="Lsj-m6-dDu" id="DId-Hz-jcB"/>
-                        <outlet property="commaButton" destination="rb0-Ys-BWz" id="Qdx-15-D1A"/>
                         <outlet property="equalLabel" destination="3E1-sk-zbJ" id="RvJ-JG-2Da"/>
-                        <outlet property="eraseButton" destination="0O4-f2-Gas" id="bRf-xO-oPC"/>
                         <outlet property="numberAndOperandLabel" destination="IJE-h4-kKp" id="gz1-ig-8wm"/>
                         <outlet property="quitButton" destination="RZF-E5-wuY" id="CPb-xS-yi4"/>
                         <outlet property="userInputLabel" destination="yR8-y8-On1" id="RFT-b0-jGD"/>
+                        <outletCollection property="numPadButtons" destination="2T3-ux-cOS" collectionClass="NSMutableArray" id="xUz-jx-xWk"/>
+                        <outletCollection property="numPadButtons" destination="esX-pD-vKq" collectionClass="NSMutableArray" id="teb-Hx-iG8"/>
+                        <outletCollection property="numPadButtons" destination="gx2-x8-XVN" collectionClass="NSMutableArray" id="W5g-GS-eZc"/>
+                        <outletCollection property="numPadButtons" destination="oCX-WO-q8t" collectionClass="NSMutableArray" id="Chp-9t-wFi"/>
+                        <outletCollection property="numPadButtons" destination="mk5-V1-ZQj" collectionClass="NSMutableArray" id="xd7-xs-yTB"/>
+                        <outletCollection property="numPadButtons" destination="To5-CH-wuq" collectionClass="NSMutableArray" id="atU-Q0-Qlj"/>
+                        <outletCollection property="numPadButtons" destination="QJo-hX-PFx" collectionClass="NSMutableArray" id="Plw-gu-I2a"/>
+                        <outletCollection property="numPadButtons" destination="W6Z-ze-ADL" collectionClass="NSMutableArray" id="tOL-1T-gCU"/>
+                        <outletCollection property="numPadButtons" destination="zTc-Bc-tGO" collectionClass="NSMutableArray" id="dfZ-0h-u3O"/>
+                        <outletCollection property="numPadButtons" destination="0O4-f2-Gas" collectionClass="NSMutableArray" id="j8s-Jm-VnL"/>
+                        <outletCollection property="numPadButtons" destination="Lsj-m6-dDu" collectionClass="NSMutableArray" id="dy8-f3-RXg"/>
+                        <outletCollection property="numPadButtons" destination="rb0-Ys-BWz" collectionClass="NSMutableArray" id="FCD-x2-hiD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bnQ-1m-ueT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1253,20 +1257,20 @@
                         <viewLayoutGuide key="safeArea" id="V1f-TV-rGB"/>
                     </view>
                     <connections>
-                        <outlet property="additionButton" destination="S5N-Vf-91F" id="BHk-aw-zbR"/>
-                        <outlet property="additionLabel" destination="Ea5-t1-fag" id="adj-KE-0kx"/>
+                        <outlet property="additionButton" destination="S5N-Vf-91F" id="L6T-5U-z1P"/>
                         <outlet property="backButton" destination="BYR-NQ-UcE" id="Glt-SE-Hb5"/>
-                        <outlet property="chooseLabel" destination="TTZ-0j-6kI" id="Ooa-Fx-FVd"/>
                         <outlet property="difficultyPickerView" destination="Q2k-Np-xgn" id="GOU-MQ-XnS"/>
-                        <outlet property="divisionButton" destination="qp4-6v-Kim" id="rWe-Er-gpU"/>
-                        <outlet property="divisionLabel" destination="heD-N4-DHN" id="SjZ-8i-6fs"/>
-                        <outlet property="multiplicationButton" destination="Z1Z-dm-VpH" id="SgQ-Iv-Spb"/>
-                        <outlet property="multiplicationLabel" destination="Ibc-bs-qE7" id="HZa-4N-vbY"/>
-                        <outlet property="selectTextLabel" destination="QeN-gO-71V" id="1Nz-VI-goK"/>
+                        <outlet property="divisionButton" destination="qp4-6v-Kim" id="2eC-JG-aPS"/>
+                        <outlet property="multiplicationButton" destination="Z1Z-dm-VpH" id="N4i-8c-fF8"/>
                         <outlet property="startGameButton" destination="uXl-vh-yOE" id="VpZ-G5-63z"/>
-                        <outlet property="subtractionButton" destination="zHl-em-hc6" id="Otw-Bf-us4"/>
-                        <outlet property="subtractionLabel" destination="acl-9u-PVa" id="3Sg-HK-WeH"/>
+                        <outlet property="subtractionButton" destination="zHl-em-hc6" id="jBg-MC-Zb6"/>
                         <outlet property="writeNameTextField" destination="DlE-bn-G8T" id="PR4-LA-MOn"/>
+                        <outletCollection property="labels" destination="heD-N4-DHN" collectionClass="NSMutableArray" id="bby-iI-0br"/>
+                        <outletCollection property="labels" destination="Ibc-bs-qE7" collectionClass="NSMutableArray" id="civ-P9-1xg"/>
+                        <outletCollection property="labels" destination="acl-9u-PVa" collectionClass="NSMutableArray" id="gsq-hu-5vz"/>
+                        <outletCollection property="labels" destination="Ea5-t1-fag" collectionClass="NSMutableArray" id="Vgr-Wf-dZK"/>
+                        <outletCollection property="labels" destination="TTZ-0j-6kI" collectionClass="NSMutableArray" id="gmw-tj-8yc"/>
+                        <outletCollection property="labels" destination="QeN-gO-71V" collectionClass="NSMutableArray" id="8oI-3b-CpC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQa-kI-yIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1370,12 +1374,15 @@
                         <viewLayoutGuide key="safeArea" id="YEI-Zq-7kV"/>
                     </view>
                     <connections>
-                        <outlet property="nameLabel" destination="DKc-a7-QfI" id="vtB-l0-TAU"/>
+                        <outlet property="nameLabel" destination="DKc-a7-QfI" id="jSi-sn-a7H"/>
                         <outlet property="playAgainButton" destination="66J-NO-hfq" id="t9T-tX-GRx"/>
                         <outlet property="popupView" destination="nLt-o4-P0F" id="YPv-Jh-2Xz"/>
                         <outlet property="quitButton" destination="Pnu-7N-pdN" id="yKK-TH-H3n"/>
-                        <outlet property="scoreLabel" destination="T4D-N9-go7" id="vnZ-0f-DXF"/>
-                        <outlet property="textLabel" destination="kML-xm-9XB" id="omD-ti-i4s"/>
+                        <outlet property="scoreLabel" destination="T4D-N9-go7" id="nKk-9W-BM9"/>
+                        <outlet property="textLabel" destination="kML-xm-9XB" id="cWP-Q9-dxo"/>
+                        <outletCollection property="labels" destination="DKc-a7-QfI" collectionClass="NSMutableArray" id="pD5-9Z-CKC"/>
+                        <outletCollection property="labels" destination="kML-xm-9XB" collectionClass="NSMutableArray" id="3SF-Vy-LV7"/>
+                        <outletCollection property="labels" destination="T4D-N9-go7" collectionClass="NSMutableArray" id="Hye-oz-ywy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxo-J2-YKj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1769,25 +1776,25 @@
                     <connections>
                         <outlet property="answerButton" destination="ooq-k4-bOU" id="fwV-0q-c2l"/>
                         <outlet property="answerLabel" destination="t0l-P2-W0j" id="niQ-Ba-2UK"/>
-                        <outlet property="buttonEight" destination="SPE-8A-4gr" id="ELf-YH-O6L"/>
-                        <outlet property="buttonFive" destination="EyG-Zy-P95" id="J7s-lA-kND"/>
-                        <outlet property="buttonFour" destination="ag7-Bn-g78" id="CW4-TR-idV"/>
-                        <outlet property="buttonNine" destination="wbv-O7-6ea" id="h1G-4W-osl"/>
-                        <outlet property="buttonOne" destination="PYZ-x1-pUz" id="KJg-5Y-gDZ"/>
-                        <outlet property="buttonSeven" destination="jC4-C1-ToX" id="hn1-zp-ov1"/>
-                        <outlet property="buttonSix" destination="W1O-2m-K9M" id="dke-VG-Sse"/>
-                        <outlet property="buttonThree" destination="mr9-ah-iB0" id="jD0-ne-xar"/>
-                        <outlet property="buttonTwo" destination="6Qw-ld-4l1" id="HhV-Iz-vhB"/>
-                        <outlet property="buttonZero" destination="z7i-JD-8ER" id="zYn-jl-5Z9"/>
-                        <outlet property="commaButton" destination="ksO-a4-NOg" id="8EC-EI-5e9"/>
                         <outlet property="equalLabel" destination="LVz-EP-X5D" id="qZC-sT-H5u"/>
-                        <outlet property="eraseButton" destination="3Nf-0g-TrE" id="7a6-M4-zTi"/>
                         <outlet property="nameLabel" destination="UBP-qe-OnU" id="cQz-TO-DgB"/>
                         <outlet property="quitButton" destination="QQ3-Af-TFI" id="SZf-yW-a9J"/>
                         <outlet property="scoreLabel" destination="7Nv-YR-U3Y" id="0FA-tH-KCl"/>
                         <outlet property="showNumbersAndOperandLabel" destination="Phc-6K-iJJ" id="Ool-U3-yHi"/>
                         <outlet property="startGameTimerLabel" destination="RKB-5K-ehn" id="2BE-T3-hCY"/>
                         <outlet property="timerLabel" destination="h3R-Gn-Egt" id="eqv-BX-nB8"/>
+                        <outletCollection property="numPadButtons" destination="PYZ-x1-pUz" collectionClass="NSMutableArray" id="6Fp-Ei-wTB"/>
+                        <outletCollection property="numPadButtons" destination="6Qw-ld-4l1" collectionClass="NSMutableArray" id="oMk-12-17A"/>
+                        <outletCollection property="numPadButtons" destination="mr9-ah-iB0" collectionClass="NSMutableArray" id="6uv-W3-587"/>
+                        <outletCollection property="numPadButtons" destination="ag7-Bn-g78" collectionClass="NSMutableArray" id="MQJ-zt-mOA"/>
+                        <outletCollection property="numPadButtons" destination="EyG-Zy-P95" collectionClass="NSMutableArray" id="0OO-Bf-zBp"/>
+                        <outletCollection property="numPadButtons" destination="W1O-2m-K9M" collectionClass="NSMutableArray" id="U8X-MA-ckZ"/>
+                        <outletCollection property="numPadButtons" destination="jC4-C1-ToX" collectionClass="NSMutableArray" id="4iP-Vi-tfg"/>
+                        <outletCollection property="numPadButtons" destination="SPE-8A-4gr" collectionClass="NSMutableArray" id="2IN-xZ-Nmp"/>
+                        <outletCollection property="numPadButtons" destination="wbv-O7-6ea" collectionClass="NSMutableArray" id="LHK-K4-jMG"/>
+                        <outletCollection property="numPadButtons" destination="3Nf-0g-TrE" collectionClass="NSMutableArray" id="gEq-gK-HA4"/>
+                        <outletCollection property="numPadButtons" destination="z7i-JD-8ER" collectionClass="NSMutableArray" id="7cW-tG-5qI"/>
+                        <outletCollection property="numPadButtons" destination="ksO-a4-NOg" collectionClass="NSMutableArray" id="AqT-07-XqU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aSC-AY-wJI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1853,9 +1860,9 @@
         <image name="checked" width="123.66666412353516" height="171"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7B9-uI-Mgx"/>
+        <segue reference="F1p-F6-W8S"/>
         <segue reference="vfa-Ej-edV"/>
-        <segue reference="VXZ-wf-ncD"/>
-        <segue reference="NZz-Ml-pgK"/>
+        <segue reference="Jy9-vB-zWf"/>
+        <segue reference="W26-6c-z8C"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -146,9 +146,8 @@
 				1E6D24DB2210567600230D88 /* Resources */,
 				1ED8A39E2208279C00DF1164 /* Model */,
 				1E21230E21F889C60097E3B0 /* AppDelegate.swift */,
-				1E21231021F889C60097E3B0 /* ViewController.swift */,
 				1E21231221F889C60097E3B0 /* Main.storyboard */,
-				1E92E71322115A5F00D8CA1B /* ColorViewController.swift */,
+				1E21231021F889C60097E3B0 /* ViewController.swift */,
 				1E6D24D5220C2FA000230D88 /* MathTableViewController.swift */,
 				1E21234421F894530097E3B0 /* SelectGameViewController.swift */,
 				1E21234621F894700097E3B0 /* GameViewController.swift */,
@@ -188,9 +187,6 @@
 			isa = PBXGroup;
 			children = (
 				1E92E70C2210A65000D8CA1B /* Them */,
-				1E6D24E0221058AB00230D88 /* MarkerFelt.ttc */,
-				1E6D24DE2210581300230D88 /* Chalkduster.ttf */,
-				1E92E70A2210988900D8CA1B /* Color.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -198,6 +194,9 @@
 		1E92E70C2210A65000D8CA1B /* Them */ = {
 			isa = PBXGroup;
 			children = (
+				1E6D24E0221058AB00230D88 /* MarkerFelt.ttc */,
+				1E6D24DE2210581300230D88 /* Chalkduster.ttf */,
+				1E92E70A2210988900D8CA1B /* Color.xcassets */,
 				1E6D24DC221056BC00230D88 /* Theme.swift */,
 				1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */,
 				1E92E70F2210A7BC00D8CA1B /* BlueColorTheme.swift */,
@@ -209,6 +208,7 @@
 		1ED8A39E2208279C00DF1164 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				1E92E71322115A5F00D8CA1B /* ColorViewController.swift */,
 				1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */,
 				1ED8A3AB2209EC5F00DF1164 /* HighScoreList.swift */,
 			);

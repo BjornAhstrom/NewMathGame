@@ -14,6 +14,7 @@ class SelectOperandInTrainOnMathViewController: ColorViewController {
     @IBOutlet weak var multiplicationButton: UIButton!
     @IBOutlet weak var divisionButton: UIButton!
     @IBOutlet weak var questionLabel: UILabel!
+    @IBOutlet var choosOperandButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +24,10 @@ class SelectOperandInTrainOnMathViewController: ColorViewController {
     }
     
     func fontAndImagesButtons() {
-        additionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        additionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
-        subtractionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        subtractionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
-        multiplicationButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        multiplicationButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
-        divisionButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        divisionButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
+        for operandButtons in choosOperandButtons {
+            operandButtons.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+            operandButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

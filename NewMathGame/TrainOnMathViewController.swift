@@ -25,19 +25,8 @@ class TrainOnMathViewController: ColorViewController {
     @IBOutlet weak var numberAndOperandLabel: UILabel!
     @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var userInputLabel: UILabel!
-    
-    @IBOutlet weak var buttonZero: RoundButton!
-    @IBOutlet weak var buttonOne: RoundButton!
-    @IBOutlet weak var buttonTwo: RoundButton!
-    @IBOutlet weak var buttonThree: RoundButton!
-    @IBOutlet weak var buttonFour: RoundButton!
-    @IBOutlet weak var buttonFive: RoundButton!
-    @IBOutlet weak var buttonSix: RoundButton!
-    @IBOutlet weak var buttonSeven: RoundButton!
-    @IBOutlet weak var buttonEight: RoundButton!
-    @IBOutlet weak var buttonNine: RoundButton!
-    @IBOutlet weak var eraseButton: RoundButton!
-    @IBOutlet weak var commaButton: RoundButton!
+
+    @IBOutlet var numPadButtons: [UIButton]!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var answerButton: UIButton!
     
@@ -49,30 +38,11 @@ class TrainOnMathViewController: ColorViewController {
     }
     
     func fontAndImagesButtons() {
-        buttonZero.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonZero.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonOne.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonOne.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonTwo.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonTwo.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonThree.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonThree.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonFour.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonFour.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonFive.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonFive.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonSix.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonSix.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonSeven.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonSeven.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonEight.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonEight.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        buttonNine.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        buttonNine.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        eraseButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        eraseButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        commaButton.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
-        commaButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        for numPad in numPadButtons{
+            numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+            numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        }
+
         quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
         quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         answerButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
@@ -80,35 +50,17 @@ class TrainOnMathViewController: ColorViewController {
     }
     
     func buttonEnable() {
-        buttonZero.isEnabled = true
-        buttonOne.isEnabled = true
-        buttonTwo.isEnabled = true
-        buttonThree.isEnabled = true
-        buttonFour.isEnabled = true
-        buttonFive.isEnabled = true
-        buttonSix.isEnabled = true
-        buttonSeven.isEnabled = true
-        buttonEight.isEnabled = true
-        buttonNine.isEnabled = true
-        eraseButton.isEnabled = true
-        commaButton.isEnabled = true
+        for buttonEnable in numPadButtons {
+            buttonEnable.isEnabled = true
+        }
         quitButton.isEnabled = true
         answerButton.isEnabled = true
     }
     
     func buttonDisable() {
-        buttonZero.isEnabled = false
-        buttonOne.isEnabled = false
-        buttonTwo.isEnabled = false
-        buttonThree.isEnabled = false
-        buttonFour.isEnabled = false
-        buttonFive.isEnabled = false
-        buttonSix.isEnabled = false
-        buttonSeven.isEnabled = false
-        buttonEight.isEnabled = false
-        buttonNine.isEnabled = false
-        eraseButton.isEnabled = false
-        commaButton.isEnabled = false
+        for buttonDisable in numPadButtons {
+            buttonDisable.isEnabled = false
+        }
         quitButton.isEnabled = false
         answerButton.isEnabled = false
     }

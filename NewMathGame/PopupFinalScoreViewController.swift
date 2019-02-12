@@ -14,18 +14,16 @@ class PopupFinalScoreViewController: UIViewController {
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet var labels: [UILabel]!
     @IBOutlet weak var playAgainButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fontAndImagesOnButton()
+        fontOnLabels()
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
-        
-        nameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        textLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        scoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         
         popupView.layer.cornerRadius = 20
         pulsate()
@@ -36,6 +34,12 @@ class PopupFinalScoreViewController: UIViewController {
         quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
         playAgainButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
         playAgainButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
+    }
+    
+    func fontOnLabels() {
+        for labels in labels {
+            labels.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
