@@ -16,6 +16,7 @@ class PopupFinalScoreViewController: UIViewController {
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet var labels: [UILabel]!
     @IBOutlet weak var playAgainButton: UIButton!
+    @IBOutlet var quitAndPlayAgainButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,27 @@ class PopupFinalScoreViewController: UIViewController {
     }
     
     func fontAndImagesOnButton() {
-        quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
-        quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
-        playAgainButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
-        playAgainButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
+        for quitAndPlayBtn in quitAndPlayAgainButtons {
+            quitAndPlayBtn.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
+            quitAndPlayBtn.layer.cornerRadius = 10
+            quitAndPlayBtn.layer.shadowColor = UIColor.gray.cgColor
+            quitAndPlayBtn.layer.shadowRadius = 5
+            quitAndPlayBtn.layer.shadowOpacity = 2
+        }
+        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
+        playAgainButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+    }
+    
+    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity }, completion: { Void in() })
     }
     
     func fontOnLabels() {

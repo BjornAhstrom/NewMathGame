@@ -13,7 +13,8 @@ class ViewController: ColorViewController, UIPickerViewDelegate, UIPickerViewDat
     @IBOutlet weak var playGameButton: UIButton!
     @IBOutlet weak var mathExerciseButton: UIButton!
     @IBOutlet weak var appNameLabel: UILabel!
-
+    @IBOutlet var buttons: [UIButton]!
+    
     let getSavedResult = HighScoreList()
     var saved = "Name : Score"
     
@@ -23,6 +24,7 @@ class ViewController: ColorViewController, UIPickerViewDelegate, UIPickerViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
         imagesAndFontsOnButtons()
+        
         appNameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 95)!
         
         highScorePickerView.dataSource = self
@@ -34,15 +36,31 @@ class ViewController: ColorViewController, UIPickerViewDelegate, UIPickerViewDat
         
         highScore = HighScoreList.getHighScore()
         highScoreNames = Array((highScore?.keys)!)
-        
-        
     }
     
+    
+    
     func imagesAndFontsOnButtons() {
-        playGameButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        playGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        mathExerciseButton.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
-        mathExerciseButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        for buttons in buttons {
+            buttons.layer.cornerRadius = 10
+            buttons.layer.shadowColor = UIColor.gray.cgColor
+            buttons.layer.shadowRadius = 5
+            buttons.layer.shadowOpacity = 2
+            buttons.backgroundColor = Theme.current.colorOnButtons
+            buttons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        }
+    }
+    
+    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 3.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity }, completion: { Void in() })
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -100,4 +118,5 @@ class ViewController: ColorViewController, UIPickerViewDelegate, UIPickerViewDat
     //            present(confirmAlertCtrl, animated: true, completion: nil)
     //        }
     //    }
+    
 }

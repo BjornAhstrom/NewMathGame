@@ -11,10 +11,10 @@ import UIKit
 protocol ThemeProtocol {
     var fontForLabels: String { get }
     var fontForButtons: String { get }
-    var imagesOnButtons: UIImage { get }
+    var colorOnButtons: UIColor { get }
     var imagesOnNumPadButtons: UIImage { get }
-    var imagesOnStartPlayAndAnswerButtons: UIImage { get }
-    var imagesOnQuitButtons: UIImage { get }
+    var colorOnStartPlayAndAnswerButtons: UIColor { get }
+    var colorOnQuitButtons: UIColor { get }
     var backGroundColorTop: UIColor { get }
     var backGroundColorMiddle: UIColor { get }
     var backGroundColorBottom: UIColor { get }

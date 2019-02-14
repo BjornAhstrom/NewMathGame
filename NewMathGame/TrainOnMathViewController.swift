@@ -29,6 +29,7 @@ class TrainOnMathViewController: ColorViewController {
     @IBOutlet var numPadButtons: [UIButton]!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var answerButton: UIButton!
+    @IBOutlet var quitAndAnswerButtons: [UIButton]!
     
     
     override func viewDidLoad() {
@@ -42,11 +43,29 @@ class TrainOnMathViewController: ColorViewController {
             numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
+        
+        for quitAndAnswerBtn in quitAndAnswerButtons {
+            quitAndAnswerBtn.layer.cornerRadius = 10
+            quitAndAnswerBtn.layer.shadowColor = UIColor.gray.cgColor
+            quitAndAnswerBtn.layer.shadowRadius = 5
+            quitAndAnswerBtn.layer.shadowOpacity = 2
+            quitAndAnswerBtn.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        }
 
-        quitButton.setBackgroundImage(Theme.current.imagesOnQuitButtons, for: .normal)
-        quitButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-        answerButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
-        answerButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
+        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+    }
+    
+    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity }, completion: { Void in() })
     }
     
     func buttonEnable() {

@@ -30,8 +30,6 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     
     @IBOutlet weak var writeNameTextField: UITextField!
     @IBOutlet weak var difficultyPickerView: UIPickerView!
-    @IBOutlet weak var selectTextLabel: UILabel!
-    @IBOutlet weak var chooseLabel: UILabel!
     @IBOutlet weak var startGameButton: UIButton!
     @IBOutlet var labels: [UILabel]!
     
@@ -42,7 +40,7 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
         fontOnLabel()
-        fontAndImagesOnOperandButtons()
+        fontAndColorsOnStartAndBackButtons()
         hideKeyboard()
         
         self.difficultyPickerView.delegate = self
@@ -57,9 +55,13 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
     }
     
-    func fontAndImagesOnOperandButtons() {
+    func fontAndColorsOnStartAndBackButtons() {
         backButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 40)
-        startGameButton.setBackgroundImage(Theme.current.imagesOnStartPlayAndAnswerButtons, for: .normal)
+        startGameButton.layer.cornerRadius = 10
+        startGameButton.layer.shadowColor = UIColor.gray.cgColor
+        startGameButton.layer.shadowRadius = 5
+        startGameButton.layer.shadowOpacity = 2
+        startGameButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
         startGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
     }
     
@@ -68,6 +70,18 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
             fontOnLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
         }
         
+    }
+    
+    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity }, completion: { Void in() })
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

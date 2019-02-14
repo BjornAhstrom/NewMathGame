@@ -25,10 +25,29 @@ class SelectOperandInTrainOnMathViewController: ColorViewController {
     
     func fontAndImagesButtons() {
         for operandButtons in choosOperandButtons {
-            operandButtons.setBackgroundImage(Theme.current.imagesOnButtons, for: .normal)
+            operandButtons.layer.cornerRadius = 10
+            operandButtons.layer.shadowColor = UIColor.gray.cgColor
+            operandButtons.layer.shadowRadius = 5
+            operandButtons.layer.shadowOpacity = 2
+            operandButtons.backgroundColor = Theme.current.colorOnButtons
+            operandButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
+            operandButtons.backgroundColor = Theme.current.colorOnButtons
             operandButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
         }
     }
+    
+    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+        sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+        
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: CGFloat(0.20),
+                       initialSpringVelocity: CGFloat(6.0),
+                       options: UIView.AnimationOptions.allowUserInteraction,
+                       animations: {
+                        sender.transform = CGAffineTransform.identity }, completion: { Void in() })
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "additionSegue" {
