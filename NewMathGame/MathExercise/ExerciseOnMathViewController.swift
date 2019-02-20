@@ -125,6 +125,11 @@ class ExerciseOnMathViewController: ColorViewController {
             }
             
         }
+        if operand == "*" {
+            firstNumber = numberFromSenderTag
+            secondNumber = randomNumbers()
+        }
+        
         if operand == "/"  {
             while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                 firstNumber = randomNumbers()
@@ -147,7 +152,6 @@ class ExerciseOnMathViewController: ColorViewController {
         }
         if multiplication == true {
             operand = "*"
-            firstNumber = numberFromSenderTag
         }
         if division == true {
             operand = "/"
