@@ -9,5 +9,6 @@
 import UIKit
 
 class Theme {
-    static var current: ThemeProtocol = BlueColorTheme()
+    static var current: ThemeProtocol = ColorTheme()
 }
+

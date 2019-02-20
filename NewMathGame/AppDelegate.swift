@@ -15,11 +15,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Theme.current = UserDefaults.standard.bool(forKey: "BlueTheme") ? BlueColorTheme() : GrayColorTheme()
-
-        
-        //window?.rootViewController = CustomTabBarViewController()
-        
+        if UserDefaults.standard.object(forKey: "Theme") != nil {
+        Theme.current = UserDefaults.standard.bool(forKey: "Theme") ? ColorTheme() : GrayColorTheme()
+        }
         return true
     }
 

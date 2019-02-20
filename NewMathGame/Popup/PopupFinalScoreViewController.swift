@@ -20,8 +20,7 @@ class PopupFinalScoreViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fontAndImagesOnButton()
-        fontOnLabels()
+        theme()
         
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.success)
@@ -30,7 +29,10 @@ class PopupFinalScoreViewController: UIViewController {
         pulsate()
     }
     
-    func fontAndImagesOnButton() {
+    func theme() {
+        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
+        playAgainButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        
         for quitAndPlayBtn in quitAndPlayAgainButtons {
             quitAndPlayBtn.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)
             quitAndPlayBtn.layer.cornerRadius = 10
@@ -38,8 +40,10 @@ class PopupFinalScoreViewController: UIViewController {
             quitAndPlayBtn.layer.shadowRadius = 5
             quitAndPlayBtn.layer.shadowOpacity = 2
         }
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        playAgainButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        
+        for labels in labels {
+            labels.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        }
     }
     
     @IBAction func buttonsWithAnimation(_ sender: UIButton) {
@@ -52,12 +56,6 @@ class PopupFinalScoreViewController: UIViewController {
                        options: UIView.AnimationOptions.allowUserInteraction,
                        animations: {
                         sender.transform = CGAffineTransform.identity }, completion: { Void in() })
-    }
-    
-    func fontOnLabels() {
-        for labels in labels {
-            labels.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

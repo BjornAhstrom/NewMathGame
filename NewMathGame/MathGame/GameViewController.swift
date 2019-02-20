@@ -45,14 +45,19 @@ class GameViewController: ColorViewController {
     @IBOutlet weak var showNumbersAndOperandLabel: UILabel!
     @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var answerLabel: UILabel!
-    @IBOutlet weak var quitButton: RoundButton!
-    @IBOutlet weak var answerButton: RoundButton!
+    @IBOutlet weak var quitButton: UIButton!
+    @IBOutlet weak var answerButton: UIButton!
     @IBOutlet var numPadButtons: [UIButton]!
     @IBOutlet var quitAndAnswerButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fontAndImagesOnButtons()
+       
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        setGradientBackground()
+        setFontColorAndImagesOnButtonAndLabels()
         
         if valueFromPickerView == 0 {
             seconds += 30
@@ -64,7 +69,6 @@ class GameViewController: ColorViewController {
             seconds += 60
         }
         
-        timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
         timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
         
         buttonDisable()
@@ -72,7 +76,26 @@ class GameViewController: ColorViewController {
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    func fontAndImagesOnButtons() {
+    func setFontColorAndImagesOnButtonAndLabels() {
+        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
+        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        timerLabel.textColor = Theme.current.textColor
+        timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
+        answerLabel.textColor = Theme.current.textColor
+        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        equalLabel.textColor = Theme.current.textColor
+        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
+        nameLabel.textColor = Theme.current.textColor
+        nameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        scoreLabel.textColor = Theme.current.textColor
+        scoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        showNumbersAndOperandLabel.textColor = Theme.current.textColor
+        showNumbersAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        startGameTimerLabel.textColor = Theme.current.textColor
+        startGameTimerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 200)
+        timerLabel.textColor = Theme.current.textColor
+        timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
+        
         for numPad in numPadButtons {
             numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
@@ -85,9 +108,6 @@ class GameViewController: ColorViewController {
             quitAndAnswer.layer.shadowOpacity = 2
             quitAndAnswer.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        
-        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
         
     }
     
@@ -133,7 +153,6 @@ class GameViewController: ColorViewController {
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    
     @IBAction func buttonsWithAnimation(_ sender: UIButton) {
         sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
         
@@ -152,7 +171,7 @@ class GameViewController: ColorViewController {
         case 0:
             firstNumber = easyRandomNumber()
             secondNumber = easyRandomNumber()
-            
+
             if operand == "+" || operand == "-" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -169,7 +188,7 @@ class GameViewController: ColorViewController {
         case 1:
             firstNumber = mediumRandomNumber()
             secondNumber = mediumRandomNumber()
-            
+
             if operand == "+" || operand == "-" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -177,7 +196,7 @@ class GameViewController: ColorViewController {
                 }
             }
             if operand == "/"   {
-                while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0{
+                while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                     firstNumber = easyRandomNumber()
                     secondNumber = easyRandomNumber()
                 }
@@ -186,7 +205,7 @@ class GameViewController: ColorViewController {
         case 2:
             firstNumber = difficultRandomNumber()
             secondNumber = difficultRandomNumber()
-            
+
             if operand == "+" || operand == "-" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -194,7 +213,7 @@ class GameViewController: ColorViewController {
                 }
             }
             if operand == "/"   {
-                while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0{
+                while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                     firstNumber = easyRandomNumber()
                     secondNumber = easyRandomNumber()
                 }
@@ -206,12 +225,10 @@ class GameViewController: ColorViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
-        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
-        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
+        userSelectedDifficultyLevelInPickerView()
         
-        if let names = name {
-            nameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-            nameLabel.text! = names
+        if let name = name {
+            nameLabel.text! = name
         }
         
         if addition == true {
@@ -239,13 +256,12 @@ class GameViewController: ColorViewController {
         
         alertMessageWhenOperandOrNameNotClickedOrWritten()
         
-        userSelectedDifficultyLevelInPickerView()
         
-        scoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         scoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
-        showNumbersAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
+    
+    
     
     func alertMessageWhenOperandOrNameNotClickedOrWritten() {
         if addition != true && subtraction != true && multiplication != true && division != true || name == "" {
@@ -288,7 +304,7 @@ class GameViewController: ColorViewController {
             answer = Double(round(100*ans)/100)
         }
         
-        tempAnswer = NewMathGame.mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
+        tempAnswer = mathematicalCalculations(firstNumber: Double(firstNumber), secondNumber: Double(secondNumber), operand: operand)
         correctAnswer = Double(round(100*tempAnswer)/100)
         
         if correctAnswer == answer {
@@ -334,8 +350,7 @@ class GameViewController: ColorViewController {
         if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
             popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
-        
-        //HighScoreList.add(name: name!, score: increaseScore)
+        HighScoreList.add(score: increaseScore)
     }
     
     func easyRandomNumber() -> Int {
@@ -368,7 +383,6 @@ class GameViewController: ColorViewController {
             runTimer()
         } else {
             startGameSecond -= 1
-            startGameTimerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 200)
             startGameTimerLabel.text! = "\(startGameSecond)"
         }
     }
@@ -380,7 +394,6 @@ class GameViewController: ColorViewController {
             showPopupForFinalScore()
         } else {
             seconds -= 1
-            timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
             timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
             
         }

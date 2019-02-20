@@ -18,10 +18,13 @@ class PopupWithWrongAnswerViewController: UIViewController {
         let generator = UINotificationFeedbackGenerator()
         generator.notificationOccurred(.warning)
         
-        textLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         popupView.layer.cornerRadius = 20
         shake()
+    }
+    
+    func theme() {
+        textLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
+        answerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
     }
     
     func shake() {

@@ -18,4 +18,5 @@ protocol ThemeProtocol {
     var backGroundColorTop: UIColor { get }
     var backGroundColorMiddle: UIColor { get }
     var backGroundColorBottom: UIColor { get }
+    var textColor: UIColor { get }
 }

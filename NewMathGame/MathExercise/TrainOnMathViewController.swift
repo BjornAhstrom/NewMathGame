@@ -16,6 +16,7 @@ class TrainOnMathViewController: ColorViewController {
     private var secondNumber: Int = 0
     private var operand: String = ""
     
+    public var ValueFromPickerView: Int = 0
     public var numberFromSenderTag : Int = 0
     public var addition: Bool = false
     public var subtraction: Bool = false
@@ -34,11 +35,18 @@ class TrainOnMathViewController: ColorViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fontAndImagesButtons()
+        setFontColorsAndImagesOnButtonsAndLabels()
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    func fontAndImagesButtons() {
+    func setFontColorsAndImagesOnButtonsAndLabels() {
+        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
+        userInputLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
+        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        numberAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+
+        
         for numPad in numPadButtons{
             numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
@@ -46,14 +54,11 @@ class TrainOnMathViewController: ColorViewController {
         
         for quitAndAnswerBtn in quitAndAnswerButtons {
             quitAndAnswerBtn.layer.cornerRadius = 10
-            quitAndAnswerBtn.layer.shadowColor = UIColor.gray.cgColor
+            quitAndAnswerBtn.layer.shadowColor = UIColor.white.cgColor
             quitAndAnswerBtn.layer.shadowRadius = 5
             quitAndAnswerBtn.layer.shadowOpacity = 2
             quitAndAnswerBtn.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
-
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
     }
     
     @IBAction func buttonsWithAnimation(_ sender: UIButton) {
@@ -104,14 +109,12 @@ class TrainOnMathViewController: ColorViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
-        equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
-        userInputLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
-        giveFirstAndSecondNumbersRandomNumbers()
+        setFirstAndSecondNumbersRandomNumbers()
         
         if addition == true {
             operand = "+"
         }
-        else if subtraction == true {
+        if subtraction == true {
             operand = "-"
             if firstNumber < secondNumber {
                 let temp = firstNumber
@@ -119,12 +122,11 @@ class TrainOnMathViewController: ColorViewController {
                 secondNumber = temp
             }
         }
-        else if multiplication == true {
+        if multiplication == true {
             operand = "*"
-            print("\(numberFromSenderTag)")
             firstNumber = numberFromSenderTag
         }
-        else if division == true {
+        if division == true {
             operand = "/"
             if firstNumber < secondNumber {
                 let temp = firstNumber
@@ -132,28 +134,22 @@ class TrainOnMathViewController: ColorViewController {
                 secondNumber = temp
             }
         }
-        numberAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        
         numberAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
     
-    func giveFirstAndSecondNumbersRandomNumbers() {
+    func setFirstAndSecondNumbersRandomNumbers() {
         firstNumber = randomNumbers()
         secondNumber = randomNumbers()
         
-        if operand == "+" {
+        if operand == "+" || operand == "-" {
             while firstNumber == 0 || secondNumber == 0 {
                 firstNumber = randomNumbers()
                 secondNumber = randomNumbers()
             }
         }
-        if operand == "-" {
-            while firstNumber == 0 || secondNumber == 0  {
-                firstNumber = randomNumbers()
-                secondNumber = randomNumbers()
-            }
-        }
-        else if operand == "/" {
-            while firstNumber == 0 || secondNumber == 0 || firstNumber % 2 != 0 || secondNumber % 2 != 0 {
+        if operand == "/"  {
+            while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                 firstNumber = randomNumbers()
                 secondNumber = randomNumbers()
             }

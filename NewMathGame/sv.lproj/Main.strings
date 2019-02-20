@@ -5,8 +5,8 @@
 /* Class = "UILabel"; text = "Wrong answer!"; ObjectID = "0t0-gN-Cd4"; */
 "0t0-gN-Cd4.text" = "Fel svar!";
 
-/* Class = "UIButton"; normalTitle = "Train on math tables"; ObjectID = "2DB-ra-obV"; */
-"2DB-ra-obV.normalTitle" = "Matte övningar";
+/* Class = "UIButton"; normalTitle = "Train on math tables"; ObjectID = "nIH-Nx-typ"; */
+"nIH-Nx-typ.normalTitle" = "Matte övningar";
 
 /* Class = "UIButton"; normalTitle = "1"; ObjectID = "2T3-ux-cOS"; */
 "2T3-ux-cOS.normalTitle" = "1";
@@ -113,8 +113,8 @@
 /* Class = "UILabel"; text = "Seconds"; ObjectID = "Y9s-nH-tDn"; */
 "Y9s-nH-tDn.text" = "Sekunder";
 
-/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "ZzG-pK-knd"; */
-"ZzG-pK-knd.normalTitle" = "Spela";
+/* Class = "UIButton"; normalTitle = "Play game"; ObjectID = "ebu-Ke-a9d"; */
+"ebu-Ke-a9d.normalTitle" = "Spela";
 
 /* Class = "UIButton"; normalTitle = "4"; ObjectID = "ag7-Bn-g78"; */
 "ag7-Bn-g78.normalTitle" = "4";
@@ -184,3 +184,12 @@
 
 /* Class = "UIButton"; normalTitle = "9"; ObjectID = "zTc-Bc-tGO"; */
 "zTc-Bc-tGO.normalTitle" = "9";
+
+/* Class = "IBUITabBarItem"; title = "Home"; ObjectID = "RW2-xK-uP9"; */
+"RW2-xK-uP9.title" = "Hem";
+
+/* Class = "UILabel"; text = "Change theme"; ObjectID = "3Gi-sS-2oq"; */
+"3Gi-sS-2oq.text" = "Ändra tema";
+
+/* Class = "UILabel"; text = "Settings"; ObjectID = "hYv-Us-vap"; */
+"hYv-Us-vap.text" = "Inställningar";

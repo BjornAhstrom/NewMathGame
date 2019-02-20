@@ -16,6 +16,7 @@
 "select_medium" = "Average";
 "select_difficult" = "Diffcult";
 "alert_title" = "Do it again and do it right!";
-"alert_message" = "You must write a name and select at least one operand";
+"alert_message" = "You must write a name and select at least one of the counting methods";
 "alert_button" = "Try again";
+"highest_Score" = "Highes score right now";
 
