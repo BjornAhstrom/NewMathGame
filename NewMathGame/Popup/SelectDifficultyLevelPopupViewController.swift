@@ -32,7 +32,7 @@ class SelectDifficultyLevelPopupViewController: UIViewController, UIPickerViewDe
     
     @IBAction func choosDifficultyLevelButton(_ sender: UIButton) {
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "exerciseMath") as! TrainOnMathViewController
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "exerciseMath") as! ExerciseOnMathViewController
         self.present(nextViewController, animated:true, completion:nil)
         nextViewController.ValueFromPickerView = savedValueFromPickerView
     }

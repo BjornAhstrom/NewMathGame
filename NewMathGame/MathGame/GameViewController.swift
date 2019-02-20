@@ -29,6 +29,9 @@ class GameViewController: ColorViewController {
     private var answer: Double = 0
     private var stopTimer: Bool = false
     private var startGameSecond: Int = 4
+    private var difficultyLevelEasy: String = ""
+    private var difficultyLevelMedium: String = ""
+    private var difficultyLevelHard: String = ""
     
     public var valueFromPickerView: Int = 0
     public var name: String?
@@ -74,6 +77,8 @@ class GameViewController: ColorViewController {
         buttonDisable()
         runStartGameTimer()
         resetRandomNumbersInNumbersAndOperandLabel()
+        print("\(valueFromPickerView)")
+
     }
     
     func setFontColorAndImagesOnButtonAndLabels() {
@@ -143,7 +148,7 @@ class GameViewController: ColorViewController {
     }
     
     @IBAction func quitButton(_ sender: UIButton) {
-        showPopupForFinalScore()
+        showPopupWindowForFinalScore()
         stopingTimer()
     }
     
@@ -165,19 +170,28 @@ class GameViewController: ColorViewController {
                         sender.transform = CGAffineTransform.identity }, completion: { Void in() })
     }
     
-    //Random number cannot be 0 on operand +, - and /. Division is only divisible by itself.
+    //Random number cannot be 0 if operand +, - or / uses, and division is only divisible by itself.
     func userSelectedDifficultyLevelInPickerView() {
         switch valueFromPickerView {
         case 0:
+            difficultyLevelEasy = "\(NSLocalizedString("difficultLevel_1", comment: ""))"
             firstNumber = easyRandomNumber()
             secondNumber = easyRandomNumber()
 
-            if operand == "+" || operand == "-" {
+            if operand == "+"  {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
                     secondNumber = easyRandomNumber()
                 }
             }
+            
+            if operand == "-" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = easyRandomNumber()
+                    secondNumber = easyRandomNumber()
+                }
+            }
+            
             if operand == "/"  {
                 while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                     firstNumber = easyRandomNumber()
@@ -186,15 +200,24 @@ class GameViewController: ColorViewController {
             }
             break
         case 1:
+            difficultyLevelMedium = "\(NSLocalizedString("difficultLevel_2", comment: ""))"
             firstNumber = mediumRandomNumber()
             secondNumber = mediumRandomNumber()
 
-            if operand == "+" || operand == "-" {
+            if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
                     secondNumber = easyRandomNumber()
                 }
             }
+            
+            if operand == "-" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = easyRandomNumber()
+                    secondNumber = easyRandomNumber()
+                }
+            }
+            
             if operand == "/"   {
                 while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                     firstNumber = easyRandomNumber()
@@ -203,15 +226,24 @@ class GameViewController: ColorViewController {
             }
             break
         case 2:
+            difficultyLevelHard = "\(NSLocalizedString("difficultLevel_3", comment: ""))"
             firstNumber = difficultRandomNumber()
             secondNumber = difficultRandomNumber()
 
-            if operand == "+" || operand == "-" {
+            if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
                     secondNumber = easyRandomNumber()
                 }
             }
+            
+            if operand == "-" {
+                while firstNumber == 0 || secondNumber == 0 {
+                    firstNumber = easyRandomNumber()
+                    secondNumber = easyRandomNumber()
+                }
+            }
+            
             if operand == "/"   {
                 while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
                     firstNumber = easyRandomNumber()
@@ -225,8 +257,6 @@ class GameViewController: ColorViewController {
     }
     
     func resetRandomNumbersInNumbersAndOperandLabel() {
-        userSelectedDifficultyLevelInPickerView()
-        
         if let name = name {
             nameLabel.text! = name
         }
@@ -255,8 +285,7 @@ class GameViewController: ColorViewController {
         }
         
         alertMessageWhenOperandOrNameNotClickedOrWritten()
-        
-        
+        userSelectedDifficultyLevelInPickerView()
         scoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
@@ -310,11 +339,11 @@ class GameViewController: ColorViewController {
         if correctAnswer == answer {
             increaseScore += 1
         } else {
-            showPopupWithWrongAnswer()
+            showPopupWindowWithWrongAnswer()
         }
     }
     
-    func showPopupWithWrongAnswer() {
+    func showPopupWindowWithWrongAnswer() {
         buttonDisable()
         let popup = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "popUpId") as! PopupWithWrongAnswerViewController
         self.addChild(popup)
@@ -329,14 +358,13 @@ class GameViewController: ColorViewController {
             popup.answerLabel.text = "\(NSLocalizedString("answer_is", comment: "")) \(String(format: "%.0f", correctAnswer))"
         }
         
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
             self.buttonEnable()
             popup.view.removeFromSuperview()
         }
     }
     
-    func showPopupForFinalScore() {
+    func showPopupWindowForFinalScore() {
         let popupFinalScore = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "finalScoreId") as! PopupFinalScoreViewController
         self.addChild(popupFinalScore)
         popupFinalScore.view.frame = self.view.frame
@@ -350,7 +378,10 @@ class GameViewController: ColorViewController {
         if popupFinalScore.scoreLabel.text == popupFinalScore.scoreLabel.text {
             popupFinalScore.scoreLabel.text = "\(increaseScore) \(NSLocalizedString("points", comment: ""))"
         }
-        HighScoreList.add(score: increaseScore)
+        
+        if let tempName = name {
+            add(score: increaseScore, name: tempName, difficultLevelEasy: difficultyLevelEasy, difficultLevelMedium: difficultyLevelMedium, difficultLevelHard: difficultyLevelHard , valueFromPickerView: valueFromPickerView)
+        }
     }
     
     func easyRandomNumber() -> Int {
@@ -371,6 +402,17 @@ class GameViewController: ColorViewController {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameViewController.updateTimer)), userInfo: nil, repeats: true)
     }
     
+    @objc func updateTimer() {
+        if seconds < 1 {
+            timer.invalidate()
+            //Send alert to indicate "time's up!"
+            showPopupWindowForFinalScore()
+        } else {
+            seconds -= 1
+            timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
+        }
+    }
+    
     func runStartGameTimer() {
         startGameTimer = Timer.scheduledTimer(timeInterval: 1, target: self,   selector: (#selector(GameViewController.updateStartGameTimer)), userInfo: nil, repeats: true)
     }
@@ -384,18 +426,6 @@ class GameViewController: ColorViewController {
         } else {
             startGameSecond -= 1
             startGameTimerLabel.text! = "\(startGameSecond)"
-        }
-    }
-    
-    @objc func updateTimer() {
-        if seconds < 1 {
-            timer.invalidate()
-            //Send alert to indicate "time's up!"
-            showPopupForFinalScore()
-        } else {
-            seconds -= 1
-            timerLabel.text! = "\(NSLocalizedString("seconds", comment: "")) \(seconds)"
-            
         }
     }
     

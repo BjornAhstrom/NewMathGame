@@ -9,8 +9,8 @@
 import Foundation
 
 
-
-func userSelectedDifficultyLevelInPickerView(valueFromPickerView: Int, operand: String) -> Int {
+//Random number cannot be 0 if operand +, - or / uses, and division is only divisible by itself.
+func userSelectedDifficultyLevelInPickerView(valueFromPickerView: Int, operand: String) {
     var firstNumber: Int = 0
     var secondNumber: Int = 0
     
@@ -69,8 +69,6 @@ func userSelectedDifficultyLevelInPickerView(valueFromPickerView: Int, operand: 
     default:
         print("Error")
     }
-    
-    return firstNumber & secondNumber
 }
 
 func easyRandomNumber() -> Int {

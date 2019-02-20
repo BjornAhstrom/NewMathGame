@@ -9,14 +9,18 @@
 "restartTitle" = "App restart required";
 "cancel" = "Cancel";
 "close" = "Close now";
-"seconds" = "Time left";
+"seconds" = "Time";
 "points" = "Points";
 "answer_is" = "Aswer is";
 "select_easy" = "Easy";
-"select_medium" = "Average";
-"select_difficult" = "Diffcult";
+"select_medium" = "Medium";
+"select_difficult" = "Hard";
 "alert_title" = "Do it again and do it right!";
 "alert_message" = "You must write a name and select at least one of the counting methods";
 "alert_button" = "Try again";
-"highest_Score" = "Highes score right now";
+"highest_Score" = "High score";
+"difficultLevel_1" = "Easy";
+"difficultLevel_2" = "Medium";
+"difficultLevel_3" = "Hard";
+
 

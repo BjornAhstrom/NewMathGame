@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TrainOnMathViewController: ColorViewController {
+class ExerciseOnMathViewController: ColorViewController {
     private var answer: Double = 0.0
     private var tempAnswer: Double = 0.0
     private var correctAnswer: Double = 0.0
@@ -108,9 +108,32 @@ class TrainOnMathViewController: ColorViewController {
         resetRandomNumbersInNumbersAndOperandLabel()
     }
     
-    func resetRandomNumbersInNumbersAndOperandLabel() {
-        setFirstAndSecondNumbersRandomNumbers()
+    func setFirstAndSecondNumbersRandomNumbers() {
+        firstNumber = randomNumbers()
+        secondNumber = randomNumbers()
         
+        if operand == "+" {
+            while firstNumber == 0 || secondNumber == 0 {
+                firstNumber = randomNumbers()
+                secondNumber = randomNumbers()
+            }
+        }
+        if operand == "-" {
+            while firstNumber == 0 || secondNumber == 0 {
+                firstNumber = randomNumbers()
+                secondNumber = randomNumbers()
+            }
+            
+        }
+        if operand == "/"  {
+            while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
+                firstNumber = randomNumbers()
+                secondNumber = randomNumbers()
+            }
+        }
+    }
+    
+    func resetRandomNumbersInNumbersAndOperandLabel() {
         if addition == true {
             operand = "+"
         }
@@ -134,26 +157,8 @@ class TrainOnMathViewController: ColorViewController {
                 secondNumber = temp
             }
         }
-        
+        setFirstAndSecondNumbersRandomNumbers()
         numberAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
-    }
-    
-    func setFirstAndSecondNumbersRandomNumbers() {
-        firstNumber = randomNumbers()
-        secondNumber = randomNumbers()
-        
-        if operand == "+" || operand == "-" {
-            while firstNumber == 0 || secondNumber == 0 {
-                firstNumber = randomNumbers()
-                secondNumber = randomNumbers()
-            }
-        }
-        if operand == "/"  {
-            while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
-                firstNumber = randomNumbers()
-                secondNumber = randomNumbers()
-            }
-        }
     }
     
     func mathematicalCalculations() {

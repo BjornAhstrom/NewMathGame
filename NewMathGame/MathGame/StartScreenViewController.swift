@@ -9,40 +9,44 @@
 import UIKit
 
 class StartScreenViewController: ColorViewController {
- 
-    @IBOutlet weak var highestScoreRightNowLabel: UILabel!
-    @IBOutlet weak var highScoreLabel: UILabel!
+    
+    @IBOutlet weak var highestScoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabelEasyResult: UILabel!
+    @IBOutlet weak var highScoreMediumResult: UILabel!
+    @IBOutlet weak var highScoreHardResult: UILabel!
     @IBOutlet weak var playGameButton: UIButton!
     @IBOutlet weak var mathExerciseButton: UIButton!
     @IBOutlet weak var appNameLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
+    @IBOutlet var labels: [UILabel]!
     
-    var nameAndScore = HighScoreList.getHighScore()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         playGameButton.titleLabel?.textColor = Theme.current.textColor
         mathExerciseButton.titleLabel?.textColor = Theme.current.textColor
-
-
     }
     
     override func viewWillAppear(_ animated: Bool) {
         imagesFontAndSizeOnButtonsAndLabels()
         setGradientBackground()
-        highestScoreRightNowLabel.text = NSLocalizedString("highest_Score", comment: "")
-        highScoreLabel.text = nameAndScore
-        print("Will appear in startScreenView")
+        highestScoreLabel.text = NSLocalizedString("highest_Score", comment: "")
+        highScoreLabelEasyResult.text = getHighScore()
+        highScoreMediumResult.text = getHighScoreMediumLevel()
+        highScoreHardResult.text = getHighScoreHardLevel()
     }
     
     func imagesFontAndSizeOnButtonsAndLabels() {
-        highestScoreRightNowLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        highestScoreRightNowLabel.textColor = Theme.current.textColor
-        highScoreLabel.numberOfLines = 2
-        highScoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-        highScoreLabel.textColor = Theme.current.textColor
+        highestScoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        highestScoreLabel.textColor = Theme.current.textColor
+        highestScoreLabel.numberOfLines = 2
+        
+        for label in labels {
+            label.font = UIFont(name: Theme.current.fontForLabels, size: 20)
+            label.textColor = Theme.current.textColor
+        }
+        
         appNameLabel.font = UIFont(name: Theme.current.fontForLabels, size: 95)!
-        print("\(Theme.current.textColor)  Färger")
         appNameLabel.textColor = Theme.current.textColor
         
         for buttons in buttons {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SelectOperandInTrainOnMathViewController: ColorViewController {
+class SelectOperandInExerciseOnMathViewController: ColorViewController {
     private let goToExerciseOnMath = SelectDifficultyLevelPopupViewController()
     
     @IBOutlet weak var additionButton: UIButton!
@@ -58,19 +58,19 @@ class SelectOperandInTrainOnMathViewController: ColorViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "additionSegue" {
-            let destination = segue.destination as! TrainOnMathViewController
+            let destination = segue.destination as! ExerciseOnMathViewController
             destination.addition = additionButton.isEnabled
         }
         else if segue.identifier == "subtractionSegue" {
-            let destination = segue.destination as! TrainOnMathViewController
+            let destination = segue.destination as! ExerciseOnMathViewController
             destination.subtraction = subtractionButton.isEnabled
         }
         else if segue.identifier == "multiplicationSegue" {
-            let destination = segue.destination as! TrainOnMathViewController
+            let destination = segue.destination as! ExerciseOnMathViewController
             destination.multiplication = multiplicationButton.isEnabled
         }
         else if segue.identifier == "divisionSegue" {
-            let destination = segue.destination as! TrainOnMathViewController
+            let destination = segue.destination as! ExerciseOnMathViewController
             destination.division = divisionButton.isEnabled
         }
     }

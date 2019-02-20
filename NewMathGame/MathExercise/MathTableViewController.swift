@@ -9,7 +9,7 @@
 import UIKit
 
 class MathTableViewController: ColorViewController {
-    let test = TrainOnMathViewController()
+    let test = ExerciseOnMathViewController()
     var currentTagNumber: Int = 0
     
     @IBOutlet weak var topLabel: UILabel!
@@ -56,7 +56,7 @@ class MathTableViewController: ColorViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "multiplicationSegue" {
-            let destination = segue.destination as! TrainOnMathViewController
+            let destination = segue.destination as! ExerciseOnMathViewController
             destination.numberFromSenderTag = currentTagNumber
             destination.multiplication = true
         }

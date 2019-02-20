@@ -28,14 +28,13 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground()
         fontAndColorsOnStartAndBackButtons()
         hideKeyboard()
-        
+
         writeNameTextField.delegate = self
         self.difficultyPickerView.delegate = self
         self.difficultyPickerView.dataSource = self
@@ -46,6 +45,8 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         
         writeNameTextField.text! = name
         difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
+        print("\(savedValueFromPickerView)")
+
     }
     
     func hideKeyboard() {

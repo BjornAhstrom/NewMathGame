@@ -19,8 +19,8 @@
 		1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E21234A21F894EF0097E3B0 /* PopupFinalScoreViewController.swift */; };
 		1E21234E21F906C10097E3B0 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1E21235021F906C10097E3B0 /* Localizable.strings */; };
 		1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */; };
-		1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */; };
-		1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */; };
+		1E2BC0F422006294002B7E8D /* SelectOperandInExerciseOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F322006294002B7E8D /* SelectOperandInExerciseOnMathViewController.swift */; };
+		1E2BC0F622006524002B7E8D /* ExerciseOnMathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F522006524002B7E8D /* ExerciseOnMathViewController.swift */; };
 		1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */; };
 		1E6D24D6220C2FA000230D88 /* MathTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D24D5220C2FA000230D88 /* MathTableViewController.swift */; };
 		1E6D24DD221056BC00230D88 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E6D24DC221056BC00230D88 /* Theme.swift */; };
@@ -77,8 +77,8 @@
 		1E21235221F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/Main.strings; sourceTree = "<group>"; };
 		1E21235321F906FB0097E3B0 /* sv */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sv; path = sv.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		1E2BC0B121FB6A26002B7E8D /* MathematicalCalculations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathematicalCalculations.swift; sourceTree = "<group>"; };
-		1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOperandInTrainOnMathViewController.swift; sourceTree = "<group>"; };
-		1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrainOnMathViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F322006294002B7E8D /* SelectOperandInExerciseOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectOperandInExerciseOnMathViewController.swift; sourceTree = "<group>"; };
+		1E2BC0F522006524002B7E8D /* ExerciseOnMathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseOnMathViewController.swift; sourceTree = "<group>"; };
 		1E2BC0F72202CB64002B7E8D /* ButtonAnimationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAnimationsViewController.swift; sourceTree = "<group>"; };
 		1E6D24D5220C2FA000230D88 /* MathTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MathTableViewController.swift; sourceTree = "<group>"; };
 		1E6D24DC221056BC00230D88 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -214,8 +214,8 @@
 		1EA89ED7221693B1005C74AE /* MathExercise */ = {
 			isa = PBXGroup;
 			children = (
-				1E2BC0F322006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift */,
-				1E2BC0F522006524002B7E8D /* TrainOnMathViewController.swift */,
+				1E2BC0F322006294002B7E8D /* SelectOperandInExerciseOnMathViewController.swift */,
+				1E2BC0F522006524002B7E8D /* ExerciseOnMathViewController.swift */,
 				1E6D24D5220C2FA000230D88 /* MathTableViewController.swift */,
 			);
 			path = MathExercise;
@@ -409,7 +409,7 @@
 				1E92E7122210A7D200D8CA1B /* GrayColorTheme.swift in Sources */,
 				1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */,
 				1E92E70E2210A68E00D8CA1B /* ThemeProtocol.swift in Sources */,
-				1E2BC0F622006524002B7E8D /* TrainOnMathViewController.swift in Sources */,
+				1E2BC0F622006524002B7E8D /* ExerciseOnMathViewController.swift in Sources */,
 				1E21231121F889C60097E3B0 /* StartScreenViewController.swift in Sources */,
 				1E6D24D6220C2FA000230D88 /* MathTableViewController.swift in Sources */,
 				1E2BC0B221FB6A26002B7E8D /* MathematicalCalculations.swift in Sources */,
@@ -420,7 +420,7 @@
 				1E21230F21F889C60097E3B0 /* AppDelegate.swift in Sources */,
 				1E21234B21F894EF0097E3B0 /* PopupFinalScoreViewController.swift in Sources */,
 				1E6D24DD221056BC00230D88 /* Theme.swift in Sources */,
-				1E2BC0F422006294002B7E8D /* SelectOperandInTrainOnMathViewController.swift in Sources */,
+				1E2BC0F422006294002B7E8D /* SelectOperandInExerciseOnMathViewController.swift in Sources */,
 				1E21234921F894970097E3B0 /* PopupWithWrongAnswerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

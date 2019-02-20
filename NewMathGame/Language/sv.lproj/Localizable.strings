@@ -9,7 +9,7 @@
 "restartTitle" = "App omstart krävs";
 "cancel" = "Ångra";
 "close" = "Stäng";
-"seconds" = "Tid kvar";
+"seconds" = "Tid";
 "points" = "Poäng";
 "answer_is" = "Svaret är";
 "select_easy" = "Lätt";
@@ -18,4 +18,7 @@
 "alert_title" = "Gör om och gör rätt!";
 "alert_message" = "Du måste skriva ett namn och välja minst ett av räknesätten";
 "alert_button" = "Försök igen";
-"highest_Score" = "Högst poäng just nu";
+"highest_Score" = "Högst poäng";
+"difficultLevel_1" = "Lätt";
+"difficultLevel_2" = "Medelsvårt";
+"difficultLevel_3" = "Svår";
