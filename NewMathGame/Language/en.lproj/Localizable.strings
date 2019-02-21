@@ -19,8 +19,8 @@
 "alert_message" = "You must write a name and select at least one of the counting methods";
 "alert_button" = "Try again";
 "highest_Score" = "High score";
-"difficultLevel_1" = "Easy";
-"difficultLevel_2" = "Medium";
-"difficultLevel_3" = "Hard";
+"difficultLevel_1" = ": Easy";
+"difficultLevel_2" = ": Medium";
+"difficultLevel_3" = ": Hard";
 
 

@@ -9,21 +9,18 @@
 import UIKit
 
 class MathTableViewController: ColorViewController {
-    let test = ExerciseOnMathViewController()
-    var currentTagNumber: Int = 0
+    private var currentTagNumber: Int = 0
     
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet var mathNumberButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        theme()
-        
+        setFontColorsAndSizeOnButtonsAndLabels()
         topLabel.numberOfLines = 2
     }
     
-    func theme() {
+    func setFontColorsAndSizeOnButtonsAndLabels() {
         topLabel.font = UIFont(name: Theme.current.fontForLabels, size: 35)
         
         for numButtons in mathNumberButtons {

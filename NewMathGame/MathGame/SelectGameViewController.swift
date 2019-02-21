@@ -9,6 +9,10 @@
 import UIKit
 
 class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+    private var difficulty: [String] = [String]()
+    
+    public var name: String = ""
+    public var savedValueFromPickerView: Int = 0
     
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var additionButton: UIButton!
@@ -22,19 +26,15 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
     @IBOutlet var labels: [UILabel]!
     @IBOutlet var allCheckBoxButtons: [UIButton]!
     
-    var name: String = ""
-    var savedValueFromPickerView: Int = 0
-    var difficulty: [String] = [String]()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         setGradientBackground()
-        fontAndColorsOnStartAndBackButtons()
+        setFontAndColorsOnStartAndBackButtons()
         hideKeyboard()
-
+        
         writeNameTextField.delegate = self
         self.difficultyPickerView.delegate = self
         self.difficultyPickerView.dataSource = self
@@ -45,14 +45,12 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         
         writeNameTextField.text! = name
         difficulty = [NSLocalizedString("select_easy", comment: ""), NSLocalizedString("select_medium", comment: ""), NSLocalizedString("select_difficult", comment: "")]
-        print("\(savedValueFromPickerView)")
-
     }
     
     func hideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-
+        
     }
     
     @objc func dismissKeyboard() {
@@ -64,7 +62,7 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         return true
     }
     
-    func fontAndColorsOnStartAndBackButtons() {
+    func setFontAndColorsOnStartAndBackButtons() {
         chooseCountingMethodLabel.numberOfLines = 2
         backButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 40)
         backButton.setTitleColor(Theme.current.textColor, for: .normal)

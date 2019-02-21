@@ -55,7 +55,7 @@ class GameViewController: ColorViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -77,8 +77,6 @@ class GameViewController: ColorViewController {
         buttonDisable()
         runStartGameTimer()
         resetRandomNumbersInNumbersAndOperandLabel()
-        print("\(valueFromPickerView)")
-
     }
     
     func setFontColorAndImagesOnButtonAndLabels() {
@@ -174,10 +172,9 @@ class GameViewController: ColorViewController {
     func userSelectedDifficultyLevelInPickerView() {
         switch valueFromPickerView {
         case 0:
-            difficultyLevelEasy = "\(NSLocalizedString("difficultLevel_1", comment: ""))"
             firstNumber = easyRandomNumber()
             secondNumber = easyRandomNumber()
-
+            
             if operand == "+"  {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -200,10 +197,9 @@ class GameViewController: ColorViewController {
             }
             break
         case 1:
-            difficultyLevelMedium = "\(NSLocalizedString("difficultLevel_2", comment: ""))"
             firstNumber = mediumRandomNumber()
             secondNumber = mediumRandomNumber()
-
+            
             if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -226,10 +222,9 @@ class GameViewController: ColorViewController {
             }
             break
         case 2:
-            difficultyLevelHard = "\(NSLocalizedString("difficultLevel_3", comment: ""))"
             firstNumber = difficultRandomNumber()
             secondNumber = difficultRandomNumber()
-
+            
             if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
                     firstNumber = easyRandomNumber()
@@ -289,8 +284,6 @@ class GameViewController: ColorViewController {
         scoreLabel.text! = "\(NSLocalizedString("points", comment: "")) \(increaseScore)"
         showNumbersAndOperandLabel.text! = "\(firstNumber)  \(operand)  \(secondNumber)"
     }
-    
-    
     
     func alertMessageWhenOperandOrNameNotClickedOrWritten() {
         if addition != true && subtraction != true && multiplication != true && division != true || name == "" {

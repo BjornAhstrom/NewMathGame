@@ -8,8 +8,7 @@
 
 import UIKit
 
-class MenuViewController: ColorViewController {
-//    @IBOutlet weak var changeThemeLabel: UILabel!
+class SettingsViewController: ColorViewController {
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var changeThemeSwitchButton: UISwitch!
     @IBOutlet weak var textThemeLabel: UILabel!
@@ -26,8 +25,6 @@ class MenuViewController: ColorViewController {
     func setFontAndColorOnLabels() {
         settingsLabel.textColor = Theme.current.textColor
         settingsLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
-//        changeThemeLabel.textColor = Theme.current.textColor
-//        changeThemeLabel.font = UIFont(name: Theme.current.fontForLabels, size: 18)
         textThemeLabel.textColor = Theme.current.textColor
         textThemeLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
     }

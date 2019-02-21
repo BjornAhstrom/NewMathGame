@@ -24,14 +24,12 @@ class ExerciseOnMathViewController: ColorViewController {
     public var division: Bool = false
     
     @IBOutlet weak var numberAndOperandLabel: UILabel!
-    @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var userInputLabel: UILabel!
-
-    @IBOutlet var numPadButtons: [UIButton]!
+    @IBOutlet weak var equalLabel: UILabel!
     @IBOutlet weak var quitButton: UIButton!
     @IBOutlet weak var answerButton: UIButton!
     @IBOutlet var quitAndAnswerButtons: [UIButton]!
-    
+    @IBOutlet var numPadButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()

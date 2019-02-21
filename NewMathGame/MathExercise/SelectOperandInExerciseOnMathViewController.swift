@@ -21,12 +21,12 @@ class SelectOperandInExerciseOnMathViewController: ColorViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        theme()
+        setFontColorsAndSizeOnButtonsAndLabels()
         questionLabel.numberOfLines = 2
         
     }
     
-    func theme() {
+    func setFontColorsAndSizeOnButtonsAndLabels() {
         questionLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         backButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 40)
         backButton.setTitleColor(Theme.current.textColor, for: .normal)

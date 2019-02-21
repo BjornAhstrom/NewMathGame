@@ -9,7 +9,6 @@
 import UIKit
 
 class StartScreenViewController: ColorViewController {
-    
     @IBOutlet weak var highestScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabelEasyResult: UILabel!
     @IBOutlet weak var highScoreMediumResult: UILabel!
@@ -17,6 +16,9 @@ class StartScreenViewController: ColorViewController {
     @IBOutlet weak var playGameButton: UIButton!
     @IBOutlet weak var mathExerciseButton: UIButton!
     @IBOutlet weak var appNameLabel: UILabel!
+    @IBOutlet weak var easyLabel: UILabel!
+    @IBOutlet weak var mediumLabel: UILabel!
+    @IBOutlet weak var hardLabel: UILabel!
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var labels: [UILabel]!
     
@@ -28,15 +30,18 @@ class StartScreenViewController: ColorViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        imagesFontAndSizeOnButtonsAndLabels()
+        setImagesFontAndSizeOnButtonsAndLabels()
         setGradientBackground()
         highestScoreLabel.text = NSLocalizedString("highest_Score", comment: "")
+        easyLabel.text = NSLocalizedString("difficultLevel_1", comment: "")
+        mediumLabel.text = NSLocalizedString("difficultLevel_2", comment: "")
+        hardLabel.text = NSLocalizedString("difficultLevel_3", comment: "")   
         highScoreLabelEasyResult.text = getHighScore()
         highScoreMediumResult.text = getHighScoreMediumLevel()
         highScoreHardResult.text = getHighScoreHardLevel()
     }
     
-    func imagesFontAndSizeOnButtonsAndLabels() {
+    func setImagesFontAndSizeOnButtonsAndLabels() {
         highestScoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
         highestScoreLabel.textColor = Theme.current.textColor
         highestScoreLabel.numberOfLines = 2
