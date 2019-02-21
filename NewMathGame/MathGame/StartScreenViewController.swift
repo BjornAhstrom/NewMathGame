@@ -9,7 +9,7 @@
 import UIKit
 
 class StartScreenViewController: ColorViewController {
-    @IBOutlet weak var highestScoreLabel: UILabel!
+    @IBOutlet weak var highScoreLabel: UILabel!
     @IBOutlet weak var highScoreLabelEasyResult: UILabel!
     @IBOutlet weak var highScoreMediumResult: UILabel!
     @IBOutlet weak var highScoreHardResult: UILabel!
@@ -22,7 +22,6 @@ class StartScreenViewController: ColorViewController {
     @IBOutlet var buttons: [UIButton]!
     @IBOutlet var labels: [UILabel]!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         playGameButton.titleLabel?.textColor = Theme.current.textColor
@@ -32,7 +31,7 @@ class StartScreenViewController: ColorViewController {
     override func viewWillAppear(_ animated: Bool) {
         setImagesFontAndSizeOnButtonsAndLabels()
         setGradientBackground()
-        highestScoreLabel.text = NSLocalizedString("highest_Score", comment: "")
+        highScoreLabel.text = NSLocalizedString("highest_Score", comment: "")
         easyLabel.text = NSLocalizedString("difficultLevel_1", comment: "")
         mediumLabel.text = NSLocalizedString("difficultLevel_2", comment: "")
         hardLabel.text = NSLocalizedString("difficultLevel_3", comment: "")   
@@ -42,9 +41,9 @@ class StartScreenViewController: ColorViewController {
     }
     
     func setImagesFontAndSizeOnButtonsAndLabels() {
-        highestScoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
-        highestScoreLabel.textColor = Theme.current.textColor
-        highestScoreLabel.numberOfLines = 2
+        highScoreLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
+        highScoreLabel.textColor = Theme.current.textColor
+        highScoreLabel.numberOfLines = 2
         
         for label in labels {
             label.font = UIFont(name: Theme.current.fontForLabels, size: 20)
@@ -64,7 +63,6 @@ class StartScreenViewController: ColorViewController {
             buttons.setTitleColor(Theme.current.textColor, for: .normal)
         }
     }
-    
     
     @IBAction func buttonsWithAnimations(_ sender: UIButton) {
         sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)

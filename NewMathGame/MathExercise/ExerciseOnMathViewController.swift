@@ -44,7 +44,6 @@ class ExerciseOnMathViewController: ColorViewController {
         answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
         numberAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
 
-        
         for numPad in numPadButtons{
             numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)

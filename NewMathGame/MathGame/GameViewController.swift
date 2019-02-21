@@ -111,7 +111,6 @@ class GameViewController: ColorViewController {
             quitAndAnswer.layer.shadowOpacity = 2
             quitAndAnswer.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
-        
     }
     
     func buttonEnable() {
@@ -198,26 +197,26 @@ class GameViewController: ColorViewController {
             break
         case 1:
             firstNumber = mediumRandomNumber()
-            secondNumber = mediumRandomNumber()
+            secondNumber = difficultRandomNumber()
             
             if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             
             if operand == "-" {
                 while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             
             if operand == "/"   {
                 while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             break
@@ -227,22 +226,22 @@ class GameViewController: ColorViewController {
             
             if operand == "+" {
                 while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             
             if operand == "-" {
                 while firstNumber == 0 || secondNumber == 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             
             if operand == "/"   {
                 while firstNumber == 0 || secondNumber == 0 || firstNumber % secondNumber != 0 {
-                    firstNumber = easyRandomNumber()
-                    secondNumber = easyRandomNumber()
+                    firstNumber = difficultRandomNumber()
+                    secondNumber = difficultRandomNumber()
                 }
             }
             break
@@ -297,6 +296,7 @@ class GameViewController: ColorViewController {
             selectGameView.view.frame = self.view.frame
             self.view.addSubview(selectGameView.view)
             selectGameView.didMove(toParent: self)
+            selectGameView.name = name!
             
             if addition == true {
                 selectGameView.additionButton.isSelected = true

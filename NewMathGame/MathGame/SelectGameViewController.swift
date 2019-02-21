@@ -10,6 +10,7 @@ import UIKit
 
 class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
     private var difficulty: [String] = [String]()
+    private let userDefaultRowKey = "defaultPickerView"
     
     public var name: String = ""
     public var savedValueFromPickerView: Int = 0
@@ -88,7 +89,7 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         }
     }
     
-    @IBAction func buttonsWithAnimation(_ sender: UIButton) {
+    @IBAction func startButtonWithAnimation(_ sender: UIButton) {
         sender.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
         
         UIView.animate(withDuration: 2.0,
@@ -122,7 +123,16 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
             pickerLabel?.textAlignment = .center
         }
         pickerLabel?.text = difficulty[row]
-        pickerLabel?.textColor = UIColor.magenta
+        
+        if pickerLabel?.text == difficulty[0] {
+            pickerLabel?.textColor = UIColor.green
+        }
+        if pickerLabel?.text == difficulty[1] {
+            pickerLabel?.textColor = UIColor.orange
+        }
+        if pickerLabel?.text == difficulty[2] {
+            pickerLabel?.textColor = UIColor.red
+        }
         
         return pickerLabel!
     }
@@ -150,6 +160,23 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
                 destination.name = name
             }
         }
+    }
+    
+    func initialPickerRow() -> Int{
+        let savedRow = UserDefaults.standard.object(forKey: userDefaultRowKey) as? Int
+        
+        if let row = savedRow {
+            return row
+        } else {
+            return difficultyPickerView.numberOfRows(inComponent: 0)
+        }
+    }
+    
+    func saveSelectedRow(row: Int) {
+        
+        let defaults = UserDefaults.standard
+        defaults.set(row, forKey: userDefaultRowKey)
+        defaults.synchronize()
     }
 }
 

@@ -217,9 +217,9 @@
                         <outlet property="easyLabel" destination="HtB-dg-cJ1" id="gOd-FY-Jis"/>
                         <outlet property="hardLabel" destination="ll1-E1-KJa" id="ePa-bM-brr"/>
                         <outlet property="highScoreHardResult" destination="Qqu-p0-icG" id="GF4-M0-hWs"/>
+                        <outlet property="highScoreLabel" destination="uBR-ut-nPw" id="tG7-YG-6Ll"/>
                         <outlet property="highScoreLabelEasyResult" destination="q7J-UY-r8k" id="xNa-3R-ACa"/>
                         <outlet property="highScoreMediumResult" destination="htg-zj-8Ec" id="JQM-Cs-2KV"/>
-                        <outlet property="highestScoreLabel" destination="uBR-ut-nPw" id="tG7-YG-6Ll"/>
                         <outlet property="mathExerciseButton" destination="BEH-rw-Rdh" id="aE1-0q-Biv"/>
                         <outlet property="mediumLabel" destination="Ukn-Re-vKz" id="4ce-Lj-b0M"/>
                         <outlet property="playGameButton" destination="ebu-Ke-a9d" id="Rp2-t1-TDs"/>
@@ -1344,7 +1344,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonsWithAnimation:" destination="JKI-iW-CgG" eventType="touchUpInside" id="xR0-8k-f9h"/>
+                                    <action selector="startButtonWithAnimation:" destination="JKI-iW-CgG" eventType="touchUpInside" id="xR0-8k-f9h"/>
                                     <segue destination="GEA-5J-JfJ" kind="presentation" modalTransitionStyle="crossDissolve" id="QxR-pM-cSE"/>
                                 </connections>
                             </button>
@@ -1367,7 +1367,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <action selector="buttonsWithAnimation:" destination="JKI-iW-CgG" eventType="touchUpInside" id="puD-nA-RGd"/>
+                                    <action selector="startButtonWithAnimation:" destination="JKI-iW-CgG" eventType="touchUpInside" id="puD-nA-RGd"/>
                                     <segue destination="dON-tG-Vaj" kind="presentation" identifier="StartGameSegue" modalTransitionStyle="crossDissolve" id="IB3-yn-Pwj"/>
                                 </connections>
                             </button>
@@ -2355,6 +2355,6 @@
         <segue reference="Est-Bc-Kee"/>
         <segue reference="vfa-Ej-edV"/>
         <segue reference="beT-p9-xsv"/>
-        <segue reference="sGb-om-VrK"/>
+        <segue reference="QxR-pM-cSE"/>
     </inferredMetricsTieBreakers>
 </document>
