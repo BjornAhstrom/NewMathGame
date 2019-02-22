@@ -12,7 +12,8 @@ class SettingsViewController: ColorViewController {
     @IBOutlet weak var settingsLabel: UILabel!
     @IBOutlet weak var changeThemeSwitchButton: UISwitch!
     @IBOutlet weak var textThemeLabel: UILabel!
-
+    @IBOutlet var themeLabels: [UILabel]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -27,12 +28,17 @@ class SettingsViewController: ColorViewController {
         settingsLabel.font = UIFont(name: Theme.current.fontForLabels, size: 30)
         textThemeLabel.textColor = Theme.current.textColor
         textThemeLabel.font = UIFont(name: Theme.current.fontForLabels, size: 25)
+        
+        for themeLabel in themeLabels {
+            themeLabel.font = UIFont(name: Theme.current.fontForLabels, size: 20)
+            themeLabel.textColor = Theme.current.textColor
+        }
     }
     
     @IBAction func themeChangeSwitchButton(_ sender: UISwitch) {
         UserDefaults.standard.set(sender.isOn, forKey: "Switch_Button")
         
-        Theme.current = sender.isOn ? ColorTheme() : GrayColorTheme()
+        Theme.current = sender.isOn ? ColorTheme() : DarkTheme()
         UserDefaults.standard.set(sender.isOn, forKey: "Theme")
         UserDefaults.standard.synchronize()
         applayTheme()

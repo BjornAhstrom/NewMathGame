@@ -29,7 +29,7 @@
 		1E92E70B2210988900D8CA1B /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E92E70A2210988900D8CA1B /* Color.xcassets */; };
 		1E92E70E2210A68E00D8CA1B /* ThemeProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */; };
 		1E92E7102210A7BC00D8CA1B /* ColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E70F2210A7BC00D8CA1B /* ColorTheme.swift */; };
-		1E92E7122210A7D200D8CA1B /* GrayColorTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */; };
+		1E92E7122210A7D200D8CA1B /* DarkTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E7112210A7D200D8CA1B /* DarkTheme.swift */; };
 		1E92E71422115A5F00D8CA1B /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E71322115A5F00D8CA1B /* ColorViewController.swift */; };
 		1E92E7182211E02700D8CA1B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E92E7172211E02700D8CA1B /* SettingsViewController.swift */; };
 		1EA140F3221D27F100C2EA89 /* UserSelectDifficultyLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EA140F2221D27F100C2EA89 /* UserSelectDifficultyLevel.swift */; };
@@ -87,7 +87,7 @@
 		1E92E70A2210988900D8CA1B /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeProtocol.swift; sourceTree = "<group>"; };
 		1E92E70F2210A7BC00D8CA1B /* ColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTheme.swift; sourceTree = "<group>"; };
-		1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayColorTheme.swift; sourceTree = "<group>"; };
+		1E92E7112210A7D200D8CA1B /* DarkTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DarkTheme.swift; sourceTree = "<group>"; };
 		1E92E71322115A5F00D8CA1B /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
 		1E92E7172211E02700D8CA1B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		1EA140F2221D27F100C2EA89 /* UserSelectDifficultyLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSelectDifficultyLevel.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 				1E6D24DC221056BC00230D88 /* Theme.swift */,
 				1E92E70D2210A68E00D8CA1B /* ThemeProtocol.swift */,
 				1E92E70F2210A7BC00D8CA1B /* ColorTheme.swift */,
-				1E92E7112210A7D200D8CA1B /* GrayColorTheme.swift */,
+				1E92E7112210A7D200D8CA1B /* DarkTheme.swift */,
 			);
 			path = Them;
 			sourceTree = "<group>";
@@ -398,7 +398,7 @@
 				1ED8A3AC2209EC5F00DF1164 /* HighScoreList.swift in Sources */,
 				1EA89EE1221731AB005C74AE /* SelectDifficultyLevelPopupViewController.swift in Sources */,
 				1E21234721F894700097E3B0 /* GameViewController.swift in Sources */,
-				1E92E7122210A7D200D8CA1B /* GrayColorTheme.swift in Sources */,
+				1E92E7122210A7D200D8CA1B /* DarkTheme.swift in Sources */,
 				1E2BC0F82202CB64002B7E8D /* ButtonAnimationsViewController.swift in Sources */,
 				1E92E70E2210A68E00D8CA1B /* ThemeProtocol.swift in Sources */,
 				1E2BC0F622006524002B7E8D /* ExerciseOnMathViewController.swift in Sources */,

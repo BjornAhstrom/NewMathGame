@@ -40,12 +40,12 @@ class ExerciseOnMathViewController: ColorViewController {
     func setFontColorsAndImagesOnButtonsAndLabels() {
         equalLabel.font = UIFont(name: Theme.current.fontForLabels, size: 60)
         userInputLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        quitButton.backgroundColor = Theme.current.colorForQuitButtons
+        answerButton.backgroundColor = Theme.current.colorForStartPlayAndAnswerButtons
         numberAndOperandLabel.font = UIFont(name: Theme.current.fontForLabels, size: 40)
 
         for numPad in numPadButtons{
-            numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+            numPad.setBackgroundImage(Theme.current.imagesForNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
         

@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if UserDefaults.standard.object(forKey: "Theme") != nil {
-        Theme.current = UserDefaults.standard.bool(forKey: "Theme") ? ColorTheme() : GrayColorTheme()
+        Theme.current = UserDefaults.standard.bool(forKey: "Theme") ? ColorTheme() : DarkTheme()
         }
         return true
     }

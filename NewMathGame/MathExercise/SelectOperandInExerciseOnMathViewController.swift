@@ -36,10 +36,10 @@ class SelectOperandInExerciseOnMathViewController: ColorViewController {
             operandButtons.layer.shadowColor = UIColor.white.cgColor
             operandButtons.layer.shadowRadius = 5
             operandButtons.layer.shadowOpacity = 2
-            operandButtons.backgroundColor = Theme.current.colorOnButtons
+            operandButtons.backgroundColor = Theme.current.colorForButtons
             operandButtons.setTitleColor(Theme.current.textColor, for: .normal)
             operandButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-            operandButtons.backgroundColor = Theme.current.colorOnButtons
+            operandButtons.backgroundColor = Theme.current.colorForButtons
             operandButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 20)
         }
     }

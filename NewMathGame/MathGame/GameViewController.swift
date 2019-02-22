@@ -80,8 +80,8 @@ class GameViewController: ColorViewController {
     }
     
     func setFontColorAndImagesOnButtonAndLabels() {
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        answerButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        quitButton.backgroundColor = Theme.current.colorForQuitButtons
+        answerButton.backgroundColor = Theme.current.colorForStartPlayAndAnswerButtons
         timerLabel.textColor = Theme.current.textColor
         timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
         answerLabel.textColor = Theme.current.textColor
@@ -100,7 +100,7 @@ class GameViewController: ColorViewController {
         timerLabel.font = UIFont(name: Theme.current.fontForLabels, size: 45)
         
         for numPad in numPadButtons {
-            numPad.setBackgroundImage(Theme.current.imagesOnNumPadButtons, for: .normal)
+            numPad.setBackgroundImage(Theme.current.imagesForNumPadButtons, for: .normal)
             numPad.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
         

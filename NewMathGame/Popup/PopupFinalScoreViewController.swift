@@ -30,8 +30,8 @@ class PopupFinalScoreViewController: UIViewController {
     }
     
     func theme() {
-        quitButton.backgroundColor = Theme.current.colorOnQuitButtons
-        playAgainButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        quitButton.backgroundColor = Theme.current.colorForQuitButtons
+        playAgainButton.backgroundColor = Theme.current.colorForStartPlayAndAnswerButtons
         
         for quitAndPlayBtn in quitAndPlayAgainButtons {
             quitAndPlayBtn.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 18)

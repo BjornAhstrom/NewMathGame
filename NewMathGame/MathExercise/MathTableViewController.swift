@@ -28,10 +28,10 @@ class MathTableViewController: ColorViewController {
             numButtons.layer.shadowColor = UIColor.white.cgColor
             numButtons.layer.shadowRadius = 5
             numButtons.layer.shadowOpacity = 2
-            numButtons.backgroundColor = Theme.current.colorOnButtons
+            numButtons.backgroundColor = Theme.current.colorForButtons
             numButtons.setTitleColor(Theme.current.textColor, for: .normal)
             numButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
-            numButtons.backgroundColor = Theme.current.colorOnButtons
+            numButtons.backgroundColor = Theme.current.colorForButtons
             numButtons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
         }
     }

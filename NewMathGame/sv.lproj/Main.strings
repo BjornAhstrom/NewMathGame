@@ -196,3 +196,9 @@
 
 /* Class = "UILabel"; text = "Select a math chart"; ObjectID = "SZZ-17-kGx"; */
 "SZZ-17-kGx.text" = "Välj en matte tabell";
+
+/* Class = "UILabel"; text = "Dark Theme"; ObjectID = "aXv-iZ-W5Z"; */
+"aXv-iZ-W5Z.text" = "Mörkt tema";
+
+/* Class = "UILabel"; text = "Color Theme"; ObjectID = "xYf-2G-viw"; */
+"xYf-2G-viw.text" = "Färg tema";

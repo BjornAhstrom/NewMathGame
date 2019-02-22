@@ -71,7 +71,7 @@ class SelectGameViewController: ColorViewController, UIPickerViewDataSource, UIP
         startGameButton.layer.shadowColor = UIColor.white.cgColor
         startGameButton.layer.shadowRadius = 5
         startGameButton.layer.shadowOpacity = 2
-        startGameButton.backgroundColor = Theme.current.colorOnStartPlayAndAnswerButtons
+        startGameButton.backgroundColor = Theme.current.colorForStartPlayAndAnswerButtons
         startGameButton.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 30)
         startGameButton.setTitleColor(Theme.current.textColor, for: .normal)
         writeNameTextField.font = UIFont(name: Theme.current.fontForLabels, size: 25)

@@ -58,7 +58,7 @@ class StartScreenViewController: ColorViewController {
             buttons.layer.shadowColor = UIColor.white.cgColor
             buttons.layer.shadowRadius = 5
             buttons.layer.shadowOpacity = 2
-            buttons.backgroundColor = Theme.current.colorOnButtons
+            buttons.backgroundColor = Theme.current.colorForButtons
             buttons.titleLabel?.font = UIFont(name: Theme.current.fontForButtons, size: 25)
             buttons.setTitleColor(Theme.current.textColor, for: .normal)
         }
